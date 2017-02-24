@@ -12,11 +12,11 @@ var gulp = require('gulp'),
     jslint = require('gulp-jslint'),
 
     build = '../../../build/servpro-300x600-build/',
-    src = 'src/';
+    src = './src/';
 
     paths = {
       'css': src + 'sass/',
-      'scripts': src + 'scripts/',
+      'js': src + 'scripts/',
       'images': src + 'images/',
     };
 
