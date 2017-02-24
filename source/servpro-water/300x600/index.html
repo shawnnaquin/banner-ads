@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HTML5 Standard Banner: 300x600</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <script src="scripts/EBLoader.js"></script>
+    <script src="scripts/script.js"></script>
+</head>
+
+<body onload="init()">
+    <div id="ad" style="background-image: url('images/background.jpg');">
+        <div id="water-holder">
+            <div id="shade"></div>
+        </div>
+    </div>
+
+    <script src="scripts/water.js"></script>
+    <script>
+        var waterHolder = document.getElementById('water-holder');
+        var shade = document.getElementById('shade');
+
+        var width = 300;
+        var height = 600;
+        var finger = [
+            [0.5, 1.0, 0.5],
+            [1.0, 1.0, 1.0],
+            [0.5, 1.0, 0.5]
+        ];
+
+        var waterModel = new WaterModel(width, height, {
+            resolution:2.0,
+            interpolate:false,
+            damping:0.985,
+            clipping:5,
+            evolveThreshold:0.05,
+            maxFps:30,
+            showStats:true
+        });
+
+        function init(){
+            var waterCanvas = new WaterCanvas(width, height,
+                "water-holder", waterModel, {
+                    backgroundImageUrl:"images/frame-dirty.jpg",
+                    lightRefraction:9.0,
+                    lightReflection:0.1,
+                    maxFps:20,
+                    showStats:true
+                });
+
+            cycle();
+        }
+
+        function cycle() {
+            shade.classList.remove('hide');
+            waterHolder.classList.remove('hide');
+            var rain = setInterval(function(){
+                waterModel.touchWater(Math.random() * width, Math.random() * height, 1.5, finger);
+            }, 15);
+
+            setTimeout(function() {
+                shade.classList.add('slow-fade');
+                shade.classList.add('hide');
+                clearInterval(rain);
+            }, 2000);
+
+            setTimeout(function() {
+                waterHolder.classList.add('hide');
+            }, 10000);
+
+            setTimeout(function() {
+                shade.classList.remove('slow-fade');
+                cycle();
+            }, 15000);
+
+        }
+
+    </script>
+</body>
+
+</html>

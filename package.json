@@ -1,0 +1,44 @@
+{
+  "name": "run-all-gulps",
+  "version": "1.1.7",
+  "description": "run all gulpfiles in subdirectory",
+  "main": "gulpfile.js",
+  "scripts": {
+    "zip": "cd build/ && for i in */; do zip -r \"${i%/}.zip\" \"$i\"; done && mkdir zip/ && mv *.zip ./zip/ && cd ../",
+    "mvZip": "mv build/zip/rename/*.zip build/zip/ && rmdir build/zip/rename",
+    
+    "version": "gulp version && gulp warn",
+    "build": "gulp && npm run zip && gulp rename && npm run mvZip && gulp zip",
+    "ftp" : "gulp ftp",
+    "serve": "gulp serve"
+
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "http://level2d.com"
+  },
+  "keywords": [
+    "gulp",
+    "workflow",
+    "automation"
+  ],
+  "author": "Bobby McBobberts",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.17.3",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-bump": "^2.5.0",
+    "gulp-chug": "^0.5.1",
+    "gulp-ftp": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-util": "^3.0.7",
+    "gulp-vinyl-zip": "^1.4.0",
+    "vinyl-ftp": "^0.5.0"
+  },
+  "bugs": {
+    "url": "http://level2d.com"
+  },
+  "homepage": "http://level2d.com"
+}

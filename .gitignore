@@ -1,0 +1,10 @@
+.DS_Store
+.secret.json
+design/*
+!design/*.svg
+node_modules/
+*.zip
+build/*
+!build/index.html
+!build/index-assets/*
+.idea
