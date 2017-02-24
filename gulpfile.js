@@ -14,17 +14,19 @@ var gulp = require( 'gulp' ),
     version = package.version,
 
 	paths = [
-		'./source/trex-deck-slider-v2-red/728x90-to-728x360/',
+		// './source/trex-deck-slider-v2-red/728x90-to-728x360/',
 		'./source/servpro-water/300x600/',
+		'./source/servpro-water/300x250/',
+		'./source/servpro-water/728x90/'
 		// './source/trex-deck-slider-v2-gray/728x90-to-728x300/',
 	],
 
 	zipPath = './build/zip/',
 
 	zipOnePaths = [
-		zipPath + 'trex-deck-slider-v2-red-728x90-to-728x360-build-'+version+'.zip',
 		zipPath + 'servpro-water-300x600-'+version+'.zip',
-		// zipPath + 'trex-deck-slider-v2-gray-728x90-to-728x300-build-'+version+'.zip',
+		zipPath + 'servpro-water-300x250-'+version+'.zip',
+		zipPath + 'servpro-water-728x90-'+version+'.zip',
 	],
 
 	// zipTwoPaths = [
@@ -124,7 +126,7 @@ gulp.task('rename', ['name'], function(){
 
 gulp.task('zipOne', function () {
 	return gulp.src(zipOnePaths)
-        .pipe(zip.dest(zipPath+'trex-deck-slider-v2-red-gray-728x90-to-728x360-'+version+'.zip'))
+        .pipe(zip.dest(zipPath+'servpro-water-300x250-300x600-728x90-'+version+'.zip'))
         .pipe(gutil.noop());
 });
 

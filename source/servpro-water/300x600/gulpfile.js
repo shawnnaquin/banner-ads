@@ -11,15 +11,13 @@ var gulp = require('gulp'),
     htmlmin = require('gulp-htmlmin'),
     jslint = require('gulp-jslint'),
 
-    build = '../../../build/servpro-water/',
-    src = './src/',
+    build = '../../../build/servpro-300x600-build/',
+    src = 'src/';
 
     paths = {
-      'sass': src + 'sass/',
+      'css': src + 'sass/',
       'scripts': src + 'scripts/',
       'images': src + 'images/',
-      'css': build + 'css',
-      'js': build + 'js'
     };
 
 
