@@ -16,7 +16,7 @@ var waterModel = new WaterModel(width, height, {
     clipping:5,
     evolveThreshold:0.05,
     maxFps:30,
-    showStats:true
+    showStats:false
 });
 
 function init(){
@@ -26,7 +26,7 @@ function init(){
             lightRefraction:9.0,
             lightReflection:0.1,
             maxFps:20,
-            showStats:true
+            showStats:false
         });
 
     cycle();
