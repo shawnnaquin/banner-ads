@@ -1,4 +1,5 @@
 # build a single add:
+
 cd to directory:
 ```
 site/source/*name*/160x600
@@ -10,6 +11,8 @@ $ gulp serve
 changes will be watched
 
 # building and packaging all ads:
+
+**Dependencies:** 7zip
 
 #### version
 ```sh
@@ -26,7 +29,7 @@ zip/*-version.zip
  ```
 #### build
 ```sh
-$ npm run build
+$ npm run build -- v1.0.0
 ```
 
 #### Serve or FTP

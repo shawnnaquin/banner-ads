@@ -9,6 +9,7 @@ var finger = [
     [0.5, 1.0, 0.5]
 ];
 
+var waterCanvas = {};
 var waterModel = new WaterModel(width, height, {
     resolution:2.0,
     interpolate:false,
@@ -20,7 +21,7 @@ var waterModel = new WaterModel(width, height, {
 });
 
 function init(){
-    var waterCanvas = new WaterCanvas(width, height,
+    waterCanvas = new WaterCanvas(width, height,
         "water-holder", waterModel, {
             backgroundImageUrl:"images/frame-dirty.jpg",
             lightRefraction:9.0,
@@ -55,3 +56,5 @@ function cycle() {
     }, 15000);
 
 }
+
+window.onload = init;

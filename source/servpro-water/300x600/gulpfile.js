@@ -11,12 +11,12 @@ var gulp = require('gulp'),
     htmlmin = require('gulp-htmlmin'),
     jslint = require('gulp-jslint'),
 
-    build = '../../../build/servpro-300x600-build/',
+    build = '../../../build/servpro-water-300x600-build/',
     src = './src/';
 
     paths = {
-      'css': src + 'sass/',
-      'js': src + 'scripts/',
+      'sass': src + 'sass/',
+      'scripts': src + 'scripts/',
       'images': src + 'images/',
     };
 
@@ -30,7 +30,7 @@ gulp.task('sass', function () {
     .pipe(autoprefixer())
     // .pipe(maps.write())
     .pipe(cssmin())
-    .pipe(gulp.dest(paths.css))
+    .pipe(gulp.dest(build + 'css'))
     .pipe(browserSync.reload({ stream: true })); // Reload browser
 });
 
@@ -45,20 +45,20 @@ gulp.task('browser-sync', ['default'], function () {
 
 // Scripts task: Compile TypeScript files to js
 gulp.task('scripts', function () {
-  return gulp.src([ paths.scripts + 'script.js', paths.scripts + 'app.js' ])
+  return gulp.src([ paths.scripts + 'script.js', paths.scripts + 'water.js', paths.scripts + 'ad.js' ])
     .pipe(jslint())
     // .pipe(maps.init())
     // .pipe(maps.write())
-    .pipe(concat('scripts.js'))
+    .pipe(concat('script.js'))
     .pipe(uglify())
-    .pipe(gulp.dest(paths.js))
+    .pipe(gulp.dest(build + 'scripts'))
     .pipe(browserSync.reload({ stream: true })); // Reload browser
 });
 
 gulp.task('EBLoader', function() {
-    return gulp.src([ paths.scripts + 'EBLoader.js', paths.scripts + 'classList.js' ])
+    return gulp.src([ paths.scripts + 'EBLoader.js' ])
       .pipe(uglify())
-      .pipe(gulp.dest(paths.js))
+      .pipe(gulp.dest(build + 'scripts'))
       .pipe(browserSync.reload({stream:true}));
 });
 

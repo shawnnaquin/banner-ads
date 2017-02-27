@@ -1,17 +1,13 @@
 {
   "name": "run-all-gulps",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "run all gulpfiles in subdirectory",
   "main": "gulpfile.js",
   "scripts": {
-    "zip": "cd build/ && for i in */; do zip -r \"${i%/}.zip\" \"$i\"; done && mkdir zip/ && mv *.zip ./zip/ && cd ../",
-    "mvZip": "mv build/zip/rename/*.zip build/zip/ && rmdir build/zip/rename",
-    
-    "version": "gulp version && gulp warn",
-    "build": "gulp && npm run zip && gulp rename && npm run mvZip && gulp zip",
+    "zip": "bash zip.sh",
+    "build": "gulp && npm run zip",
     "ftp" : "gulp ftp",
     "serve": "gulp serve"
-
   },
 
   "repository": {
