@@ -15,7 +15,7 @@ function startAd() {
 }
 
 function addEventListeners() {
-    document.getElementById("clickthrough-button").addEventListener("click", clickthrough);
+    document.getElementById("ad").addEventListener("click", clickthrough);
 }
 
 function clickthrough() {

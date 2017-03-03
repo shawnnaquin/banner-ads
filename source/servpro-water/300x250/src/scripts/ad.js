@@ -2,7 +2,7 @@ var waterHolder = document.getElementById('water-holder');
 var shade = document.getElementById('shade');
 
 var width = 300;
-var height = 600;
+var height = 250;
 var finger = [
     [0.5, 1.0, 0.5],
     [1.0, 1.0, 1.0],
@@ -23,7 +23,7 @@ var waterModel = new WaterModel(width, height, {
 function init(){
     waterCanvas = new WaterCanvas(width, height,
         "water-holder", waterModel, {
-            backgroundImageUrl:"images/300x600-dirty.jpg",
+            backgroundImageUrl:"images/300x250-dirty.jpg",
             lightRefraction:9.0,
             lightReflection:0.1,
             maxFps:20,

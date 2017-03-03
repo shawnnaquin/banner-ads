@@ -15,9 +15,9 @@ var gulp = require('gulp'),
     src = './src/';
 
     paths = {
-      'sass': src + 'sass/',
-      'js': src + 'scripts/',
-      'images': src + 'images/',
+        'sass': src + 'sass/',
+        'scripts': src + 'scripts/',
+        'images': src + 'images/',
     };
 
 
@@ -45,14 +45,14 @@ gulp.task('browser-sync', ['default'], function () {
 
 // Scripts task: Compile TypeScript files to js
 gulp.task('scripts', function () {
-  return gulp.src([ paths.scripts + 'script.js', paths.scripts + 'app.js' ])
-    .pipe(jslint())
-    // .pipe(maps.init())
-    // .pipe(maps.write())
-    .pipe(concat('scripts.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest(build + 'scripts'))
-    .pipe(browserSync.reload({ stream: true })); // Reload browser
+    return gulp.src([ paths.scripts + 'script.js', paths.scripts + 'water.js', paths.scripts + 'ad.js' ])
+        .pipe(jslint())
+        // .pipe(maps.init())
+        // .pipe(maps.write())
+        .pipe(concat('script.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest(build + 'scripts'))
+        .pipe(browserSync.reload({ stream: true })); // Reload browser
 });
 
 gulp.task('EBLoader', function() {
