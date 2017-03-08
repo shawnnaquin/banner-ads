@@ -18,6 +18,7 @@ var gulp = require( 'gulp' ),
 		// './source/trex-deck-slider-v2-gray/728x90-to-728x300/',
 		'./source/servpro-water/300x600/',
 		'./source/servpro-water/300x250/',
+		'./source/servpro-storm/300x250/',
 		'./source/servpro-water/728x90/'
 	];
 
