@@ -2,6 +2,7 @@ body {
     margin: 0px;
 }
 #ad {
+    position: relative;
     display: block;
     border: rgb(145, 153, 153) 1px solid;
     overflow: hidden;
@@ -12,9 +13,23 @@ body {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    cursor: pointer;
 }
 
 /* Custom */
+
+.button {
+    position: absolute;
+    bottom: 4px;
+    right: 28px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+
+    #ad:hover & {
+        opacity: 1;
+    }
+}
 
 #water-holder {
     position: relative;

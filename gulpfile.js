@@ -19,7 +19,7 @@ var gulp = require( 'gulp' ),
 		'./source/servpro-water/300x600/',
 		'./source/servpro-water/300x250/',
 		'./source/servpro-storm/300x250/',
-		'./source/servpro-water/728x90/'
+		'./source/servpro-storm/728x90/'
 	];
 
 	// zipPath = './build/zip/';

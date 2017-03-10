@@ -48,7 +48,7 @@ function cycle() {
 
     setTimeout(function() {
         waterHolder.classList.add('hide');
-    }, 10000);
+    }, 3000);
 
     setTimeout(function() {
         shade.classList.remove('slow-fade');
