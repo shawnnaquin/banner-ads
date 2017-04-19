@@ -8,24 +8,23 @@ var gulp = require( 'gulp' ),
     zip = require('gulp-vinyl-zip'),
     rename = require('gulp-rename'),
     bump = require('gulp-bump'),
-
     fs = require('fs'),
-
     package = JSON.parse(fs.readFileSync('./package.json')),
+    projects = JSON.parse(fs.readFileSync('./projects.json')),
     version = package.version,
 
-   	projects = JSON.parse(fs.readFileSync('./projects.json')),
-	paths = projects.servproWater;
+    project = projects.kylottospeedometer,
+    projectDir = project.directory,
+    files = project.files,
+    HTMLIndex = project.index;
 
 /* clean
 ----------------------------------------------------------------------------------------------------------------------*/
-gulp.task('clean', function () {
+gulp.task('clean', function() {
 	return del(projects.del);
 });
-
 /* version
 ----------------------------------------------------------------------------------------------------------------------*/
-
 gulp.task('version', function(){
   gulp.src('./package.json')
   .pipe(bump({key: "version"}))
@@ -59,7 +58,7 @@ gulp.task( 'ftp', ['cleanremote'], function () {
 
 gulp.task( 'ftpIndex', function () {
 	var conn = ftp.create(connOptions);
-    return gulp.src( './build/index.html', { base: './build/', buffer: false } )
+    return gulp.src( './build/'+HTMLIndex, { base: './build/', buffer: false } )
         .pipe( conn.dest( secret.remotePath ) );
 });
 
@@ -74,10 +73,19 @@ gulp.task('name', function() {
 		.pipe(gulp.dest('./build/zip-version'));
 });
 
+gulp.task('moveindex', ['clean'], function() {
+  return gulp.src(projectDir+'/'+HTMLIndex)
+    .pipe( rename({
+      basename: 'index',
+      extname: '.html'
+    }) )
+    .pipe(gulp.dest('./build'));
+});
+
 /* build
 ----------------------------------------------------------------------------------------------------------------------*/
-gulp.task('build', ['clean'], function() {
-	return paths.forEach(function(obj) {
+gulp.task('build', ['clean', 'moveindex'], function() {
+	return files.forEach(function(obj) {
 		gulp.src( obj+'gulpfile.js', { read: true } )
 			.pipe( chug() )
 	        .pipe(gutil.noop());

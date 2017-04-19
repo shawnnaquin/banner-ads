@@ -1,0 +1,307 @@
+/* variables
+----------------------------------------------------------------------------------------------------------------------*/
+$width:160px;
+$height:600px;
+$top: 460px;
+$bottom: $height - $top;
+$orange:#F47A3F;
+$green:#6b9f45;
+// $dark-green: #5b823c;
+$dark-green: #5b823c;
+$button-hover: #dbe7d2;
+$radial-background: radial-gradient(ellipse at center, $green 56%, $dark-green 100%);
+
+/* setup
+----------------------------------------------------------------------------------------------------------------------*/
+.block {
+    position:relative;
+    float:left;
+    width:100%;
+    display:block;
+}
+.bg-green {
+    background-color:$green;
+}
+.text-orange {
+    color:$orange;
+}
+
+/* large blocks
+----------------------------------------------------------------------------------------------------------------------*/
+body {
+    font-family: 'Titillium Web', sans-serif;
+    color:white;
+    text-align:center;
+    margin: 0px;
+
+}
+#ad {
+    position:relative;
+    display: block;
+    overflow: hidden;
+    width: $width;
+    height: $height;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor:pointer;
+}
+
+#banner {
+    position: absolute;
+    display: block;
+    width: $width;
+    height: $height;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+/* logo
+----------------------------------------------------------------------------------------------------------------------*/
+.svg-logo {
+    float:none;
+    width:136px;
+    height:30px;
+    .logo-white{
+        fill:white;
+    }
+    .logo-orange{
+        fill:$orange;
+    }
+    .logo-stroke{
+        fill:none;
+        stroke:white;
+        stroke-width:2;
+    }
+}
+
+.logo {
+    display: block;
+    width:100%;
+    float:left;
+    margin-top:12px;
+    margin-right:auto;
+    margin-bottom:0;
+    margin-left:auto;
+    img {
+        display:block;
+        width:100%;
+        height:auto;
+    }
+}
+
+/* dirty/clean
+----------------------------------------------------------------------------------------------------------------------*/
+.dirty, .clean {
+    transition:opacity 800ms ease;
+}
+
+.dirty {
+    z-index:2;
+}
+
+.clean {
+    z-index:1;
+}
+
+/* headers
+----------------------------------------------------------------------------------------------------------------------*/
+h1 {
+    font-size:18px;
+    font-weight:bold;
+    line-height:1.5;
+    text-shadow:1px 1px 1px rgba(0,0,0,0.5);
+    letter-spacing:0.5px;
+}
+
+/* arrow
+----------------------------------------------------------------------------------------------------------------------*/
+.arrow {
+    display:inline;
+    path {
+        fill:none;
+        stroke-width:2;
+        stroke:$orange;
+        stroke-linejoin:round;
+        stroke-miterlimit:10;
+        transition:stroke 300ms ease;
+    }
+    .angle {
+        stroke-linecap:round;
+    }
+}
+
+/* buttons
+----------------------------------------------------------------------------------------------------------------------*/
+.button {
+    display:block;
+    width:65%;
+    height:auto;
+    float:none;
+    margin:0 auto;
+    background:white;
+    text-align:center;
+    font-size: 10px;
+    text-decoration: none;
+    color: $orange;
+    font-weight: bold;
+    padding-top:6px;
+    padding-bottom:6px;
+    transition:background 300ms ease;
+    transition-property:background, color;
+    svg {
+        width:7px;
+        height:8px;
+    }
+    &:hover, &:active {
+        background:$orange;
+        color:white;
+        .arrow path {
+            stroke:white;
+        }
+    }
+}
+
+/* top
+----------------------------------------------------------------------------------------------------------------------*/
+#top {
+    height:$top;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:cover;
+    background-image:url('../images/background.jpg');
+}
+
+/* bottom
+----------------------------------------------------------------------------------------------------------------------*/
+#bottom {
+    height:$bottom;
+    background:$radial-background;
+    z-index:2;
+    h1 {
+        font-size:18px;
+        line-height:1.2;
+        margin-top:0;
+        margin-bottom:12px;
+        text-shadow:none;
+    }
+}
+
+/* layers
+----------------------------------------------------------------------------------------------------------------------*/
+.layer {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    &-top {
+        z-index:3;
+    }
+    &-middle {
+        z-index:2;
+    }
+    &-bottom {
+        z-index:1;
+    }
+}
+
+/* headers
+----------------------------------------------------------------------------------------------------------------------*/
+.clean, .dirty {
+    > h1 {
+        opacity:0;
+        position:absolute;
+        top:21px;
+        left:0;
+        width:100%;
+        height:auto;
+        margin:0;
+    }
+}
+.dirty > h1 {
+    top:33px;
+    z-index:2;
+}
+
+/* background
+----------------------------------------------------------------------------------------------------------------------*/
+#top .background {
+    > div {
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background-repeat:no-repeat;
+        background-position:center;
+        background-size:cover;
+    }
+
+    .dirty {
+        position:relative;
+        &-top, &-middle, &-bottom {
+            opacity:0;
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            z-index:1;
+        }
+        &-top {
+            top:-1px;
+            opacity:1;
+        }
+        &-middle {
+            opacity:1;
+            top:143px;
+            z-index:2;
+        }
+        &-bottom {
+            opacity:1;
+            top:auto;
+            bottom:-7px;
+        }
+    }
+
+    .clean {
+        background-image:url('../images/background.jpg');
+    }
+}
+
+.wand {
+    position:absolute;
+    display:block;
+    right: 160px;
+    top: 0px;
+}
+
+/* reset
+----------------------------------------------------------------------------------------------------------------------*/
+.reset {
+    pointer-events:none;
+    opacity:0;
+    position:absolute;
+    bottom:149px;
+    right:8px;
+    height:15px;
+    width:15px;
+    z-index:3;
+    border:0;
+    outline:0;
+    padding:0;
+    background: transparent;
+    cursor:pointer;
+    svg {
+        display:block;
+        width:15px;
+        height:15px;
+        fill:white;
+        transition:fill 300ms ease;
+    }
+    &:hover svg {
+        fill:black;
+    }
+}

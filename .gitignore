@@ -5,7 +5,6 @@ design/*
 node_modules/
 *.zip
 build/*
-!build/index.html
 !build/index-assets/*
 .idea
 *~

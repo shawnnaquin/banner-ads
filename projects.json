@@ -1,18 +1,28 @@
 {
-	"servproWater": [
-		"./source/servpro-water/servpro-water/300x600/",
-		"./source/servpro-water/servpro-water/300x250/",
-		"./source/servpro-water/servpro-storm/300x250/",
-		"./source/servpro-water/servpro-storm/728x90/"
-	],
+	"kylottospeedometer": {
+		"directory": "./source/kylotto-speedometer/",
+		"index": "kylotto-speedometer.html",
+		"files": [
+			"./source/kylotto-speedometer/160x600/"
+		]
+	},
+
+	"servproWater": {
+		"directory": "./source/servpro-water",
+		"index": "servprowater.html",
+		"files": [
+			"./source/servpro-water/servpro-water/300x600/",
+			"./source/servpro-water/servpro-water/300x250/",
+			"./source/servpro-water/servpro-storm/300x250/",
+			"./source/servpro-water/servpro-storm/728x90/"
+		]
+	},
 
 	"del": [
 		"./build/zip",
 		"./build/zip-version",
 		"./build/**/*",
 		"!./build/index-assets/",
-		"!./build/index-assets/**",
-		"!./build/index.html",
-		"!./build/servprowater.html"
+		"!./build/index-assets/**"
 	]
 }
