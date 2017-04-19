@@ -58,7 +58,7 @@ gulp.task( 'ftp', ['cleanremote'], function () {
 
 gulp.task( 'ftpIndex', function () {
 	var conn = ftp.create(connOptions);
-    return gulp.src( './build/'+HTMLIndex, { base: './build/', buffer: false } )
+    return gulp.src( './build/index.html', { base: './build/', buffer: false } )
         .pipe( conn.dest( secret.remotePath ) );
 });
 
