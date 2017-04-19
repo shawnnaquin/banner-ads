@@ -1,0 +1,57 @@
+body {
+    margin: 0px;
+}
+#ad {
+    position: relative;
+    display: block;
+    border: rgb(145, 153, 153) 1px solid;
+    overflow: hidden;
+    width: 298px;
+    height: 598px;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+/* Custom */
+
+.button {
+    position: absolute;
+    bottom: 36px;
+    left: 32px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+
+    #ad:hover & {
+        opacity: 1;
+    }
+}
+
+#water-holder {
+    position: relative;
+    opacity: 1;
+    transition: opacity 1s ease-in;
+}
+
+#shade {
+    background-color: rgba(205, 156, 82, 0.65);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+
+#shade.slow-fade {
+    transition: opacity 8s ease-in;
+}
+
+#water-holder.hide,
+#shade.hide {
+    opacity: 0;
+}
