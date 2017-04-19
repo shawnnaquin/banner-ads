@@ -1,0 +1,18 @@
+{
+	"servproWater": [
+		"./source/servpro-water/servpro-water/300x600/",
+		"./source/servpro-water/servpro-water/300x250/",
+		"./source/servpro-water/servpro-storm/300x250/",
+		"./source/servpro-water/servpro-storm/728x90/"
+	],
+
+	"del": [
+		"./build/zip",
+		"./build/zip-version",
+		"./build/**/*",
+		"!./build/index-assets/",
+		"!./build/index-assets/**",
+		"!./build/index.html",
+		"!./build/servprowater.html"
+	]
+}

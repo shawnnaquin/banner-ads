@@ -8,70 +8,29 @@ var gulp = require( 'gulp' ),
     zip = require('gulp-vinyl-zip'),
     rename = require('gulp-rename'),
     bump = require('gulp-bump'),
+
     fs = require('fs'),
-    // package = JSON.parse(fs.readFileSync('./package.json')),
 
-    // version = package.version,
+    package = JSON.parse(fs.readFileSync('./package.json')),
+    version = package.version,
 
-	paths = [
-		// './source/trex-deck-slider-v2-red/728x90-to-728x360/',
-		// './source/trex-deck-slider-v2-gray/728x90-to-728x300/',
-		'./source/servpro-water/300x600/',
-		'./source/servpro-water/300x250/',
-		'./source/servpro-storm/300x250/',
-		'./source/servpro-storm/728x90/'
-	];
+   	projects = JSON.parse(fs.readFileSync('./projects.json')),
+	paths = projects.servproWater;
 
-	// zipPath = './build/zip/';
-
-	// zipOnePaths = [
-	// 	zipPath + 'servpro-water-300x600-'+version+'.zip',
-	// 	zipPath + 'servpro-water-300x250-'+version+'.zip',
-	// 	zipPath + 'servpro-water-728x90-'+version+'.zip',
-	// ],
-
-	// zipTwoPaths = [
-	// 	zipPath + 'servpro-water-160x600-build-'+version+'.zip',
-	// 	zipPath + 'servpro-water-300x250-build-'+version+'.zip',
-	// 	zipPath + 'servpro-water-300x600-build-'+version+'.zip',
-	// 	zipPath + 'servpro-water-728x90-build-'+version+'.zip',
-	// ],
-
-/* default
+/* clean
 ----------------------------------------------------------------------------------------------------------------------*/
 gulp.task('clean', function () {
-	return del([
-			'./build/zip',
-			'./build/**/*',
-			'!./build/index.html',
-			'!./build/index-assets/',
-			'!./build/index-assets/**'
-		]);
+	return del(projects.del);
 });
-
-gulp.task('build', ['clean'], function() {
-	return paths.forEach(function(obj) {
-		gulp.src( obj+'gulpfile.js', { read: true } )
-			.pipe( chug() )
-	        .pipe(gutil.noop());
-	});
-});
-
-gulp.task( 'default', ['build'] );
-
 
 /* version
 ----------------------------------------------------------------------------------------------------------------------*/
-// gulp.task('warn', function(){
-// 	gutil.log(gutil.colors.magenta('update index.html with new version: '+version));
-// 	gutil.log(gutil.colors.magenta('and run gulp ftpIndex !'));
-// });
-//
-// gulp.task('version', function(){
-//   gulp.src('./package.json')
-//   .pipe(bump({key: "version"}))
-//   .pipe(gulp.dest('./'));
-// });
+
+gulp.task('version', function(){
+  gulp.src('./package.json')
+  .pipe(bump({key: "version"}))
+  .pipe(gulp.dest('./'));
+});
 
 /* ftp
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -94,9 +53,8 @@ gulp.task( 'ftp', ['cleanremote'], function () {
 	var conn = ftp.create(connOptions);
 
     return gulp.src( './build/**/*', { base: './build/', buffer: false } )
-        .pipe( conn.newer( secret.remotePath ) ) // only upload newer files 
+        .pipe( conn.newer( secret.remotePath ) ) // only upload newer files
         .pipe( conn.dest( secret.remotePath ) );
- 
 });
 
 gulp.task( 'ftpIndex', function () {
@@ -107,37 +65,24 @@ gulp.task( 'ftpIndex', function () {
 
 /* rename
 ----------------------------------------------------------------------------------------------------------------------*/
-// gulp.task('name', function() {
-// 	return gulp.src('./build/zip/**/*.zip')
-// 		.pipe( rename({
-// 			suffix: '-'+version,
-// 			extname: '.zip'
-//     	}) )
-// 		.pipe(gulp.dest('./build/zip/rename/'));
-// });
-//
-// gulp.task('rename', ['name'], function(){
-// 	return del([
-// 			'./build/zip/*.zip',
-// 		]);
-// });
+gulp.task('name', function() {
+	return gulp.src('./build/zip/**/*.zip')
+		.pipe( rename({
+			suffix: '-'+version,
+			extname: '.zip'
+    	}) )
+		.pipe(gulp.dest('./build/zip-version'));
+});
 
-/* zip
+/* build
 ----------------------------------------------------------------------------------------------------------------------*/
-
-// gulp.task('zipOne', function () {
-// 	return gulp.src('./build/zip/*.zip')
-//         .pipe(zip.dest(zipPath+'servpro-water-300x250-300x600-728x90' + (gutil.env.version ? '-' + gutil.env.version : '') + '.zip'))
-//         .pipe(gutil.noop());
-// });
-
-// gulp.task('zipTwo', function () {
-// 	return gulp.src(zipTwoPaths)
-//         .pipe(zip.dest(zipPath+'servpro-water-160x600-300x250-300x600-728x90-'+version+'.zip'))
-//         .pipe(gutil.noop());
-// });
-
-gulp.task( 'zip', ['zipOne'] );
+gulp.task('build', ['clean'], function() {
+	return paths.forEach(function(obj) {
+		gulp.src( obj+'gulpfile.js', { read: true } )
+			.pipe( chug() )
+	        .pipe(gutil.noop());
+	});
+});
 
 /* serve
 ----------------------------------------------------------------------------------------------------------------------*/
