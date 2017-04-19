@@ -1,3 +1,5 @@
+var	projectName = 'kylottospeedometer';
+
 var gulp = require( 'gulp' ),
 	chug = require( 'gulp-chug' ),
 	del = require( 'del'),
@@ -11,12 +13,13 @@ var gulp = require( 'gulp' ),
 	fs = require('fs'),
 	package = JSON.parse(fs.readFileSync('./package.json')),
 	projects = JSON.parse(fs.readFileSync('./projects.json')),
-	version = package.version,
 
-	project = projects.kylottospeedometer,
+	project = projects[projectName],
 	projectDir = project.directory,
 	files = project.files,
-	HTMLIndex = project.index;
+	HTMLIndex = project.index,
+	versionKey = projectName+'-version',
+	version = project[versionKey];
 
 /* clean
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -26,8 +29,8 @@ gulp.task('clean', function() {
 /* version
 ----------------------------------------------------------------------------------------------------------------------*/
 gulp.task('version', function(){
-	gulp.src('./package.json')
-		.pipe(bump({key: "version"}))
+	gulp.src('./projects.json')
+		.pipe(bump({key: versionKey }))
 		.pipe(gulp.dest('./'));
 });
 
