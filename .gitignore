@@ -3,6 +3,7 @@
 design/*
 !design/*.svg
 node_modules/
+npm-debug.log
 *.zip
 build/*
 !build/index-assets/*
