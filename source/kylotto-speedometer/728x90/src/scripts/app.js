@@ -1,5 +1,5 @@
 var layerArray = ['layer-one','layer-two','layer-three'];
-var fadeDuration = 400;
+var fadeDuration = 500;
 var startAt = 2300;
 var timeOnFrame = 3000;
 var timeouts;
@@ -27,12 +27,12 @@ function runAd() {
 
 	timeouts.push( setTimeout( function() {
 		hideShow(1,2);
-	}, startAt+timeOnFrame) );
+	}, startAt+(timeOnFrame*1.16666)) );
 
 	timeouts.push( setTimeout( function() {
 		hideShow(2,0);
 		reset();
-	}, startAt+(timeOnFrame*2)) );
+	}, startAt+(timeOnFrame*2.16666)) );
 }
 
 function hideShow(cur,next) {

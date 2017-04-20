@@ -9,6 +9,7 @@ function initAnimation() {
 }
 
 function reset() {
+	document.querySelector('#banner').classList.add('first-frame');
 	document.querySelector('.js-needle').classList.add('run-speed');
 	clearTimeouts();
 	runAd();
@@ -26,18 +27,19 @@ function runAd() {
 
 	timeouts.push( setTimeout( function() {
 		hideShow(1,2);
-	}, startAt+timeOnFrame) );
+	}, startAt+(timeOnFrame*1.16666) );
 
 	timeouts.push( setTimeout( function() {
 		hideShow(2,0);
 		reset();
-	}, startAt+(timeOnFrame*2)) );
+	}, startAt+(timeOnFrame*2.16666) );
 }
 
 function hideShow(cur,next) {
 	document.querySelector('.js-'+layerArray[cur]).style.opacity = 0;
 	document.querySelector('.js-'+layerArray[next]).style.opacity = 1;
 	if ( cur === 0 ) {
+		document.querySelector('#banner').classList.remove('first-frame');
 		setTimeout(function(){
 			document.querySelector('.js-needle').classList.remove('run-speed');
 		}, fadeDuration);
