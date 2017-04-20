@@ -54,7 +54,9 @@ body {
     float:left;
     position:relative;
     height:$height;
+    margin-left:0px;
     width:430px;
+    transition: all 200ms ease;
 }
 
 #bottom {
@@ -107,6 +109,7 @@ body {
     background-repeat:no-repeat;
     transform:translate3d(-50%,-50%,0);
     z-index:1;
+    transition: all 200ms ease;
 }
 
 .shadow {
@@ -149,10 +152,11 @@ body {
 
 .logos {
     display: block;
-    height: 60px;
+    height: 75px;
     float: none;
-    margin: 15px auto;
-    width: 221px;
+    margin: 7px auto;
+    width: 298px;
+    transition: all 200ms ease;
 }
 
 .logo {
@@ -163,7 +167,7 @@ body {
     transform: translate3d(0,-50%,0);
     border:0;
     outline:none;
-    height:60px;
+    height:75px;
     width:auto;
     perspective:100px;
     perspective-origin: center;
@@ -171,6 +175,7 @@ body {
     transition:transform 200ms ease-in;
     margin-right:10px;
     margin-left:10px;
+    transition-property:transform, margin-right, margin-left;
     &:hover {
         transform:scale(1.05) translate3d(0,-50%,0);
         transition-timing-function: ease-out;
@@ -178,11 +183,30 @@ body {
 }
 
 .ky-logo {
-    width:129px;
-    height:60px;
+    width:161px;
+    height:75px;
 }
 
 .gambler-logo {
-    height:42px;
-    width:52px;
+    height:55px;
+    width:68px;
+}
+
+.first-frame {
+    #top {
+        float:left;
+        width:200px;
+        margin-left:124px;
+    }
+    .speedometer, .shadow {
+        width:65%;
+        padding-bottom:41%;
+    }
+    .logos {
+        width:298px;
+        margin-left:0;
+    }
+    .ky-logo {
+        margin-right:24px;
+    }
 }

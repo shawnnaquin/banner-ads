@@ -1,5 +1,5 @@
 var layerArray = ['layer-one','layer-two','layer-three'];
-var fadeDuration = 500;
+var fadeDuration = 400;
 var startAt = 2300;
 var timeOnFrame = 3000;
 var timeouts;
@@ -9,6 +9,7 @@ function initAnimation() {
 }
 
 function reset() {
+	document.querySelector('#banner').classList.add('first-frame');
 	document.querySelector('.js-needle').classList.add('run-speed');
 	clearTimeouts();
 	runAd();
@@ -38,6 +39,7 @@ function hideShow(cur,next) {
 	document.querySelector('.js-'+layerArray[cur]).style.opacity = 0;
 	document.querySelector('.js-'+layerArray[next]).style.opacity = 1;
 	if ( cur === 0 ) {
+		document.querySelector('#banner').classList.remove('first-frame');
 		setTimeout(function(){
 			document.querySelector('.js-needle').classList.remove('run-speed');
 		}, fadeDuration);
