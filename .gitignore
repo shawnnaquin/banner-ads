@@ -7,5 +7,6 @@ npm-debug.log
 *.zip
 build/*
 !build/index-assets/*
+art/
 .idea
 *~

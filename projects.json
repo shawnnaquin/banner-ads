@@ -4,7 +4,9 @@
 		"directory": "./source/kylotto-speedometer/",
 		"index": "kylotto-speedometer.html",
 		"files": [
-			"./source/kylotto-speedometer/160x600/"
+			"./source/kylotto-speedometer/300x600/",
+			"./source/kylotto-speedometer/300x250/",
+			"./source/kylotto-speedometer/728x90/"
 		]
 	},
 

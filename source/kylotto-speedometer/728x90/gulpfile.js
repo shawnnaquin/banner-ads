@@ -11,7 +11,7 @@ var gulp = require('gulp'),
 	htmlmin = require('gulp-htmlmin'),
 	jslint = require('gulp-jslint'),
 
-	build = '../../../build/kylotto-speedometer-160x600-build/',
+	build = '../../../build/kylotto-speedometer-728x90-build/',
 	src = './src/',
 
 	paths = {

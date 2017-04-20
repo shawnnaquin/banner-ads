@@ -1,0 +1,188 @@
+/* variables
+----------------------------------------------------------------------------------------------------------------------*/
+$width:728px;
+$height:90px;
+$easeoutback: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+$easeinoutexpo: cubic-bezier(1,0,0,1);
+
+/* large blocks
+----------------------------------------------------------------------------------------------------------------------*/
+body {
+    font-family: 'Helvetica', sans-serif;
+    color:white;
+    text-align:center;
+    margin: 0px;
+}
+
+#border {
+    pointer-events:none;
+    position:absolute;
+    width:calc(#{$width} - 2px);
+    height:calc(#{$height} - 2px);
+    border:1px solid black;
+    z-index:1;
+}
+
+#ad {
+    position:relative;
+    display: block;
+    overflow: hidden;
+    width: $width;
+    height: $height;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor:pointer;
+    background-image:url('../images/bg.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+#banner {
+    position: absolute;
+    display: block;
+    width: $width;
+    height: $height;
+    overflow: hidden;
+}
+
+#top {
+    float:left;
+    position:relative;
+    height:$height;
+    width:430px;
+}
+
+#bottom {
+    display:table;
+    float:left;
+    position:relative;
+    height:$height;
+    width:298px;
+}
+
+.layer {
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    opacity:0;
+    transition:opacity 300ms ease;
+
+    &-one {
+        z-index:3;
+        opacity:1;
+    }
+    &-two {
+        z-index:2;
+    }
+    &-three {
+        z-index:1;
+    }
+
+    > img {
+        position:absolute;
+        top:50%;
+        left:50%;
+        width:386px;
+        height:auto;
+        transform:translate3d(-50%,-50%,0);
+    }
+}
+
+.speedometer, .shadow {
+    position:absolute;
+    top:50%;
+    left:50%;
+    width: 31%;
+    padding-bottom: 19%;
+    background-image:url('../images/guage.png');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    transform:translate3d(-50%,-50%,0);
+    z-index:1;
+}
+
+.shadow {
+    border-radius:12%;
+    box-shadow:0 0 10px rgba(0,0,0,0.7);
+    z-index:0;
+}
+
+.speedometer {
+    perspective:100px;
+    perspective-origin: center;
+}
+
+.needle {
+    position:absolute;
+    top: 24%;
+    left: 43%;
+    width: 8%;
+    height: 55.5%;
+    -webkit-transform-origin: center 83px;
+    -webkit-transform: rotate3d(0,0,1,-90deg);
+    transform: rotate3d(0,0,1,-76deg);
+    transform-origin: center 39px;
+}
+
+.run-speed {
+    animation-name:speed;
+    animation-timing-function: $easeInOutCubic;
+    animation-duration: 1.5s;
+    animation-direction: forwards;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes speed {
+    100% {
+        transform:rotate3d(0,0,1,90deg);
+    }
+}
+
+.logos {
+    display: block;
+    height: 60px;
+    float: none;
+    margin: 15px auto;
+    width: 221px;
+}
+
+.logo {
+    position:relative;
+    display:block;
+    float:left;
+    top: 50%;
+    transform: translate3d(0,-50%,0);
+    border:0;
+    outline:none;
+    height:60px;
+    width:auto;
+    perspective:100px;
+    perspective-origin: center;
+    transform-origin: center;
+    transition:transform 200ms ease-in;
+    margin-right:10px;
+    margin-left:10px;
+    &:hover {
+        transform:scale(1.05) translate3d(0,-50%,0);
+        transition-timing-function: ease-out;
+    }
+}
+
+.ky-logo {
+    width:129px;
+    height:60px;
+}
+
+.gambler-logo {
+    height:42px;
+    width:52px;
+}
