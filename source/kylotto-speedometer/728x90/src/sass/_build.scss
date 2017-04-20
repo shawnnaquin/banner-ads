@@ -112,6 +112,118 @@ body {
     transition: all 200ms ease;
 }
 
+.guage-svg {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    > path {
+        fill:white;
+    }
+}
+
+.run-guage {
+    > path {
+        animation-name:guage;
+        animation-timing-function: linear;
+        animation-duration: 100ms;
+        animation-direction: forwards;
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+        animation-delay:0;
+        // some weird quadratic formula I couldn't figure out!;
+        &:nth-child(1) {
+            animation-delay:300ms;
+        }
+        &:nth-child(2) {
+            animation-delay:400ms;
+        }
+        &:nth-child(3) {
+            animation-delay:500ms;
+        }
+        &:nth-child(4) {
+            animation-delay:600ms;
+        }
+        &:nth-child(5) {
+            animation-delay:700ms;
+        }
+        &:nth-child(6) {
+            animation-delay:800ms;
+        }
+        &:nth-child(7) {
+            animation-delay:823ms;
+        }
+        &:nth-child(8) {
+            animation-delay:846ms;
+        }
+        &:nth-child(9) {
+            animation-delay:869ms;
+        }
+        &:nth-child(10) {
+            animation-delay:892ms;
+        }
+        &:nth-child(11) {
+            animation-delay:915ms;
+        }
+        &:nth-child(12) {
+            animation-delay:930ms;
+        }
+        &:nth-child(13) {
+            animation-delay:960ms;
+        }
+        &:nth-child(14) {
+            animation-delay:1015ms;
+        }
+        &:nth-child(15) {
+            animation-delay:1045ms;
+        }
+        &:nth-child(16) {
+            animation-delay:1075ms;
+        }
+        &:nth-child(17) {
+            animation-delay:1105ms;
+        }
+        &:nth-child(18) {
+            animation-delay:1135ms;
+        }
+        &:nth-child(19) {
+            animation-delay:1165ms;
+        }
+        &:nth-child(20) {
+            animation-delay:1200ms;
+        }
+        &:nth-child(21) {
+            animation-delay:1266ms;
+        }
+        &:nth-child(22) {
+            animation-delay:1296ms;
+        }
+        &:nth-child(23) {
+            animation-delay:1332ms;
+        }
+        &:nth-child(24) {
+            animation-delay:1398ms;
+        }
+        &:nth-child(25) {
+            animation-delay:1466ms;
+        }
+        &:nth-child(26) {
+            animation-delay:1532ms;
+        }
+        &:nth-child(27) {
+            animation-delay:1600ms;
+        }
+
+    }
+}
+
+@keyframes guage {
+    100% {
+        fill: red;
+    }
+}
+
 .shadow {
     border-radius:12%;
     box-shadow:0 0 10px rgba(0,0,0,0.7);
@@ -129,9 +241,7 @@ body {
     left: 43%;
     width: 8%;
     height: 55.5%;
-    -webkit-transform-origin: center 83px;
-    -webkit-transform: rotate3d(0,0,1,-90deg);
-    transform: rotate3d(0,0,1,-76deg);
+    transform: rotate3d(0,0,1,-90deg);
     transform-origin: center 39px;
 }
 
