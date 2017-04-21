@@ -3,6 +3,8 @@
 cd build
 rm ./zip/*.zip
 
+mkdir ./zip
+
 version=""
 
 if [ "$1" != "" ]; then
@@ -11,7 +13,8 @@ fi
 
 for DIRECTORY in */; do
 	if [ "$DIRECTORY" != "zip/" ] && [ "$DIRECTORY" != "index-assets/" ]; then
-	    7z a -tzip "./zip/all-ads$version.zip" "$DIRECTORY"
-		7z a -tzip "./zip/${DIRECTORY%/}$version.zip" "$DIRECTORY"
+		#! 7z a -tzip with any -mx="*" didn't upload to sizmek :(
+	    zip -r -X "./zip/all-ads$version.zip" "$DIRECTORY"
+		zip -r -X "./zip/${DIRECTORY%/}$version.zip" "$DIRECTORY"
 	fi
 done

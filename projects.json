@@ -1,6 +1,6 @@
 {
 	"kylottospeedometer": {
-		"kylottospeedometer-version": "1.0.4",
+		"kylottospeedometer-version": "1.0.5",
 		"directory": "./source/kylotto-speedometer/",
 		"index": "kylotto-speedometer.html",
 		"files": [
