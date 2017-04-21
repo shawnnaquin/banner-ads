@@ -118,96 +118,7 @@ body {
     height:100%;
     > path {
         fill:white;
-        // transition:fill 100ms ease;
-        // //nth-childs
-        // &:nth-child(1) {
-        //     transition-delay:300ms;
-        // }
-        // &:nth-child(2) {
-        //     transition-delay:400ms;
-        // }
-        // &:nth-child(3) {
-        //     transition-delay:500ms;
-        // }
-        // &:nth-child(4) {
-        //     transition-delay:600ms;
-        // }
-        // &:nth-child(5) {
-        //     transition-delay:700ms;
-        // }
-        // &:nth-child(6) {
-        //     transition-delay:800ms;
-        // }
-        // &:nth-child(7) {
-        //     transition-delay:823ms;
-        // }
-        // &:nth-child(8) {
-        //     transition-delay:846ms;
-        // }
-        // &:nth-child(9) {
-        //     transition-delay:869ms;
-        // }
-        // &:nth-child(10) {
-        //     transition-delay:892ms;
-        // }
-        // &:nth-child(11) {
-        //     transition-delay:915ms;
-        // }
-        // &:nth-child(12) {
-        //     transition-delay:930ms;
-        // }
-        // &:nth-child(13) {
-        //     transition-delay:960ms;
-        // }
-        // &:nth-child(14) {
-        //     transition-delay:1015ms;
-        // }
-        // &:nth-child(15) {
-        //     transition-delay:1045ms;
-        // }
-        // &:nth-child(16) {
-        //     transition-delay:1075ms;
-        // }
-        // &:nth-child(17) {
-        //     transition-delay:1105ms;
-        // }
-        // &:nth-child(18) {
-        //     transition-delay:1135ms;
-        // }
-        // &:nth-child(19) {
-        //     transition-delay:1165ms;
-        // }
-        // &:nth-child(20) {
-        //     transition-delay:1200ms;
-        // }
-        // &:nth-child(21) {
-        //     transition-delay:1266ms;
-        // }
-        // &:nth-child(22) {
-        //     transition-delay:1296ms;
-        // }
-        // &:nth-child(23) {
-        //     transition-delay:1332ms;
-        // }
-        // &:nth-child(24) {
-        //     transition-delay:1398ms;
-        // }
-        // &:nth-child(25) {
-        //     transition-delay:1466ms;
-        // }
-        // &:nth-child(26) {
-        //     transition-delay:1532ms;
-        // }
-        // &:nth-child(27) {
-        //     transition-delay:1600ms;
-        // }
     }
-
-    // &.run-guage {
-    //     > path {
-    //         fill:red;
-    //     }
-    // }
 }
 
 .shadow {
@@ -231,21 +142,6 @@ body {
     transform:rotateZ(-90deg);
     transform-origin: center 83px;
 }
-
-// .run-speed {
-//     animation-name:speed;
-//     animation-timing-function: $easeInOutCubic;
-//     animation-duration: 2s;
-//     animation-direction: forwards;
-//     animation-fill-mode: forwards;
-//     animation-iteration-count: 1;
-// }
-
-// @keyframes speed {
-//     100% {
-//         transform:rotate3d(0,0,1,90deg);
-//     }
-// }
 
 .logos {
     position:absolute;

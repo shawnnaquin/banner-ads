@@ -58,7 +58,6 @@ function engageGuage() {
 }
 
 function reset() {
-
 	Array.prototype.forEach.call(document.querySelectorAll('.js-guage-svg > path'), function(el, i){
 		el.style.fill = '';
 	});
