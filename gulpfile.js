@@ -10,6 +10,7 @@ var gulp = require( 'gulp' ),
 	zip = require('gulp-vinyl-zip'),
 	rename = require('gulp-rename'),
 	bump = require('gulp-bump'),
+	inject = require('gulp-inject-string'),
 	fs = require('fs'),
 	package = JSON.parse(fs.readFileSync('./package.json')),
 	projects = JSON.parse(fs.readFileSync('./projects.json')),
@@ -78,6 +79,7 @@ gulp.task('name', function() {
 
 gulp.task('moveindex', ['clean'], function() {
 	return gulp.src(projectDir+'/'+HTMLIndex)
+        .pipe(inject.after('<!-- inject -->','\n<script type="text/javascript">( function(w) {window.addEventListener("load", function() { document.querySelector(".js-replace-href").setAttribute("href", "zip/all-ads-'+version+'.zip"); }); })(window);</script>'))
 		.pipe( rename({
 			basename: 'index',
 			extname: '.html'

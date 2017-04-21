@@ -1,57 +1,48 @@
 {
-	"name": "run-all-gulps",
-	"version": "1.0.0",
-	"description": "run all gulpfiles in subdirectory",
-	"main": "gulpfile.js",
-
-	"scripts": {
-
-		"cleanremote": "gulp cleanremote",
-		"clean": "gulp clean",
-		"build": "gulp build",
-		"version": "gulp version",
-		"zip": "bash zip.sh",
-		"rename": "gulp name && bash rename.sh",
-		"serve": "gulp serve",
-		"ftp" : "gulp ftp",
-		"ftpIndex" : "gulp ftpIndex",
-
-		"all": "npm run clean && npm run build && npm run zip && npm run rename",
-		"allftp": "npm run all && npm run cleanremote && npm run ftp",
-		"allserve": "npm run all && npm run serve"
-
-	},
-
-	"repository": {
-		"type": "git",
-		"url": "http://level2d.com"
-	},
-
-	"keywords": [
-		"gulp",
-		"workflow",
-		"automation"
-	],
-
-	"author": "Bobby McBobberts",
-	"license": "MIT",
-
-	"devDependencies": {
-		"browser-sync": "^2.17.3",
-		"del": "^2.2.2",
-		"gulp": "^3.9.1",
-		"gulp-bump": "^2.5.0",
-		"gulp-chug": "^0.5.1",
-		"gulp-ftp": "^1.1.0",
-		"gulp-rename": "^1.2.2",
-		"gulp-util": "^3.0.7",
-		"gulp-vinyl-zip": "^1.4.0",
-		"vinyl-ftp": "^0.5.0"
-	},
-
-	"bugs": {
-		"url": "http://level2d.com"
-	},
-
-	"homepage": "http://level2d.com"
+  "name": "run-all-gulps",
+  "version": "1.0.0",
+  "description": "run all gulpfiles in subdirectory",
+  "main": "gulpfile.js",
+  "scripts": {
+    "cleanremote": "gulp cleanremote",
+    "clean": "gulp clean",
+    "build": "gulp build",
+    "version": "gulp version",
+    "zip": "bash zip.sh",
+    "rename": "gulp name && bash rename.sh",
+    "serve": "gulp serve",
+    "ftp": "gulp ftp",
+    "ftpIndex": "gulp ftpIndex",
+    "all": "npm run clean && npm run build && npm run zip && npm run rename",
+    "allftp": "npm run all && npm run cleanremote && npm run ftp",
+    "allserve": "npm run all && npm run serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://level2d.com"
+  },
+  "keywords": [
+    "gulp",
+    "workflow",
+    "automation"
+  ],
+  "author": "Bobby McBobberts",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.17.3",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-bump": "^2.5.0",
+    "gulp-chug": "^0.5.1",
+    "gulp-ftp": "^1.1.0",
+    "gulp-inject-string": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-util": "^3.0.7",
+    "gulp-vinyl-zip": "^1.4.0",
+    "vinyl-ftp": "^0.5.0"
+  },
+  "bugs": {
+    "url": "http://level2d.com"
+  },
+  "homepage": "http://level2d.com"
 }
