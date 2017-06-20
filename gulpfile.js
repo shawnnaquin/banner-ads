@@ -1,4 +1,4 @@
-var	projectName = 'kylottospeedometer';
+var	projectName = 'KYLottoJackpotTriggers';
 
 var gulp = require( 'gulp' ),
 	chug = require( 'gulp-chug' ),

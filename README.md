@@ -17,15 +17,6 @@ changes will be watched
 #### version
 ```sh
 $ npm run version
-```
-#### after versioning -- before building
-update linked zips in build
-```
-./build/index.html
-```
-with 
-```
-zip/*-version.zip
  ```
 #### build
 ```sh
