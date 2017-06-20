@@ -1,8 +1,7 @@
-(function(w){
   //requestAnimationFrame polyfill | Milos Djakonovic ( @Miloshio ) | MIT | https://github.com/milosdjakonovic/requestAnimationFrame-polyfill
 
   /**
-   *
+   * 
    * How many times should polyfill call
    * update callback? By canon, it should
    * be 60 times per second, so that ideal
@@ -16,31 +15,31 @@
    *
    * So, leave this value 1000/60 unless
    * you target specific browser on spec
-   * ific device that is going to work
+   * ific device that is going to work 
    * better with custom value. I think
    * that this is the longest comment I've
    * written on single variable so far.
-  **/
+  **/ 
   var FRAME_RATE_INTERVAL = 1000/60,
 
   /**
    * All queued callbacks in given cycle.
-  **/
+  **/ 
   allCallbacks = [],
-
+  
   executeAllScheduled = false,
-
+  
   shouldCheckCancelRaf = false,
-
+  
   /**
    * Callbacks queued for cancellation.
-  **/
+  **/ 
   callbacksForCancellation = [],
-
+  
   /**
    * Should callback be cancelled?
    * @param cb - callback
-  **/
+  **/ 
   isToBeCancelled = function(cb){
     for(var i=0;i<callbacksForCancellation.length;i++){
       if(callbacksForCancellation[i] === cb ){
@@ -49,11 +48,11 @@
       }
     }
   },
-
-
-
+  
+  
+  
   /**
-   *
+   * 
    * Executes all (surprise) callbacks in
    * and removes them from callback queue.
    *
@@ -72,14 +71,14 @@
       _allCallbacks[i].apply(w, [ new Date().getTime() ] );
     }
   },
-
+  
   /**
    *
    * requestAnimationFrame polyfill
    * @param callback - callback to be queued & executed | executed
    * @return callback
-   *
-  **/
+   * 
+  **/ 
   raf = function(callback){
     allCallbacks.push(callback);
     if(executeAllScheduled===false){
@@ -92,7 +91,7 @@
   /**
    *
    * Cancels raf.
-  **/
+  **/ 
   cancelRaf = function(callback){
     callbacksForCancellation.push(callback);
     shouldCheckCancelRaf = true;
@@ -102,13 +101,14 @@
   //https://gist.github.com/paulirish/1579671
   vendors = ['ms', 'moz', 'webkit', 'o'];
 
-    for(var x = 0; x < vendors.length && !w.requestAnimationFrame; ++x) {
-        w.requestAnimationFrame = w[vendors[x]+'RequestAnimationFrame'];
-        w.cancelAnimationFrame = w[vendors[x]+'CancelAnimationFrame'] || w[vendors[x]+'CancelRequestAnimationFrame'];
+    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+        window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+        window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame'] 
+        || w[vendors[x]+'CancelRequestAnimationFrame'];
     }
 
-  if (!w.requestAnimationFrame) w.requestAnimationFrame = raf;
-  if (!w.cancelAnimationFrame)  w.cancelAnimationFrame  = cancelRaf;
+  if (!window.requestAnimationFrame) window.requestAnimationFrame = raf;
+  if (!window.cancelAnimationFrame)  window.cancelAnimationFrame  = cancelRaf;  
 
   // querySelector Polyfill
   if (!document.querySelectorAll) {
@@ -138,5 +138,3 @@
       return (elements.length) ? elements[0] : null;
     };
   }
-
-})(window);

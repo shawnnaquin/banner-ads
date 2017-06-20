@@ -1,4 +1,3 @@
-(function(w){
   //requestAnimationFrame polyfill | Milos Djakonovic ( @Miloshio ) | MIT | https://github.com/milosdjakonovic/requestAnimationFrame-polyfill
 
   /**
@@ -102,14 +101,14 @@
   //https://gist.github.com/paulirish/1579671
   vendors = ['ms', 'moz', 'webkit', 'o'];
 
-    for(var x = 0; x < vendors.length && !w.requestAnimationFrame; ++x) {
-        w.requestAnimationFrame = w[vendors[x]+'RequestAnimationFrame'];
-        w.cancelAnimationFrame = w[vendors[x]+'CancelAnimationFrame'] 
+    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+        window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+        window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame'] 
         || w[vendors[x]+'CancelRequestAnimationFrame'];
     }
 
-  if (!w.requestAnimationFrame) w.requestAnimationFrame = raf;
-  if (!w.cancelAnimationFrame)  w.cancelAnimationFrame  = cancelRaf;  
+  if (!window.requestAnimationFrame) window.requestAnimationFrame = raf;
+  if (!window.cancelAnimationFrame)  window.cancelAnimationFrame  = cancelRaf;  
 
   // querySelector Polyfill
   if (!document.querySelectorAll) {
@@ -139,5 +138,3 @@
       return (elements.length) ? elements[0] : null;
     };
   }
-
-})(window);
