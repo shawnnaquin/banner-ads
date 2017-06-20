@@ -6,8 +6,8 @@ _
 ```json
 {
     "host": "tbg.l2.design",
-    "user": "l2design",
-    "pass": "DUFPebDq",
+    "user": "**,
+    "pass": "**",
     "remotePath": "/tbg.l2.design/somename/"
 }
 ```
