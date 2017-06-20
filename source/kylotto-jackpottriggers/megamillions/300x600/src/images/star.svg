@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" id="star" viewBox="0 0 431 283" style="enable-background:new 0 0 431 283;">
+<svg xmlns="http://www.w3.org/2000/svg" id="star" viewBox="0 0 431 283" style="enable-background:new 0 0 431 283;" preserveAspectRatio="none">
 	<defs>
 		<filter xmlns="http://www.w3.org/2000/svg" id="starshadow" x="0" y="0" width="200%" height="200%">
 			<feOffset result="offOut" in="SourceAlpha" dx="10" dy="10"/>

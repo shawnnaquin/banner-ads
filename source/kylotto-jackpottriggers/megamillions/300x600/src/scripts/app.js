@@ -10,7 +10,7 @@ var timeouts;
 // }
 
 function initAnimation() {
-	// reset();
+	reset();
 }
 
 function reset() {
