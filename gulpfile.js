@@ -62,7 +62,7 @@ gulp.task( 'ftp', ['cleanremote'], function () {
 
 gulp.task( 'ftpIndex', function () {
 	var conn = ftp.create(connOptions);
-	return gulp.src( './build/index.html', { base: './build/', buffer: false } )
+	return gulp.src( ['./build/index.html', './build/index-assets/**/*'], { base: './build/', buffer: false } )
 		.pipe( conn.dest( secret.remotePath ) );
 });
 
@@ -77,7 +77,7 @@ gulp.task('name', function() {
 		.pipe(gulp.dest('./build/zip-version'));
 });
 
-gulp.task('moveindex', ['clean'], function() {
+gulp.task('moveIndex', function() {
 	return gulp.src(projectDir+'/'+HTMLIndex)
         .pipe(inject.after('<!-- inject -->','\n<script type="text/javascript">( function(w) {window.addEventListener("load", function() { document.querySelector(".js-replace-href").setAttribute("href", "zip/all-ads-'+version+'.zip"); }); })(window);</script>'))
 		.pipe( rename({
@@ -89,7 +89,7 @@ gulp.task('moveindex', ['clean'], function() {
 
 /* build
 ----------------------------------------------------------------------------------------------------------------------*/
-gulp.task('build', ['clean', 'moveindex'], function() {
+gulp.task('build', ['clean', 'moveIndex'], function() {
 	return files.forEach(function(obj) {
 		gulp.src( obj+'gulpfile.js', { read: true } )
 			.pipe( chug() )

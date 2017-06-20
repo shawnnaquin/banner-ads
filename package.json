@@ -12,7 +12,7 @@
     "rename": "gulp name && bash rename.sh",
     "serve": "gulp serve",
     "ftp": "gulp ftp",
-    "ftpIndex": "gulp ftpIndex",
+    "ftpIndex": "gulp moveIndex && gulp ftpIndex",
     "all": "npm run clean && npm run build && npm run zip && npm run rename",
     "allftp": "npm run all && npm run cleanremote && npm run ftp",
     "allserve": "npm run all && npm run serve"
