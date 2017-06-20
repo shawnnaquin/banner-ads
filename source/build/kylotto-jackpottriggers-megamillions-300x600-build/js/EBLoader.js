@@ -1,1 +1,0 @@
-function loadServingSysScript(t){document.write("<script src='"+("https:"===document.location.protocol?"https://secure-":"http://")+"ds.serving-sys.com/BurstingScript/"+t+"'></script>")}loadServingSysScript("EBLoader.js");
