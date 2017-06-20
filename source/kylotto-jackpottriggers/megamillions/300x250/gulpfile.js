@@ -11,7 +11,7 @@ var gulp = require('gulp'),
 	htmlmin = require('gulp-htmlmin'),
 	jslint = require('gulp-jslint'),
 
-	build = '../../../build/kylotto-jackpottriggers-megamillions-300x250-build/',
+	build = '../../../../build/kylotto-jackpottriggers-megamillions-300x250-build/',
 	src = './src/',
 
 	paths = {
