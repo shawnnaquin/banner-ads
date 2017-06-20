@@ -1,6 +1,14 @@
 <svg class="gamblers-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 804.87 648.79">
   <defs>
+<!--     <filter id="shadow">
+      <feDropShadow dx="4" dy="8" stdDeviation="4"/>
+    </filter> -->
     <style>
+
+<!--       .gamblers-1, .gamblers-2, .gamblers-3, .gamblers-4 {
+        filter:url(#shadow);
+      } -->
+
       .gamblers-1 {
         fill: #fcee1e;
       }
