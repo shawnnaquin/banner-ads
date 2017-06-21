@@ -30,6 +30,7 @@ body {
 }
 
 #ad {
+    position:relative;
     color:black;
     position:relative;
     display: block;
@@ -42,6 +43,7 @@ body {
     -ms-user-select: none;
     user-select: none;
     cursor:pointer;
+    z-index:0;
 }
 
 #banner {

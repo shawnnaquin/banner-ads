@@ -2,22 +2,27 @@
 ----------------------------------------------------------------------------------------------------------------------*/
 $width:160px;
 $height:600px;
+$bright-blue:#1b2aec;
+$font: Verdana, Geneva, sans-serif;
 $easeoutback: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 $easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1);
 $easeinoutexpo: cubic-bezier(1,0,0,1);
 
+
 /* large blocks
 ----------------------------------------------------------------------------------------------------------------------*/
 body {
-    font-family: 'Helvetica', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: $font;
     color:white;
     text-align:center;
     margin: 0px;
 }
 
 #border {
-    pointer-events:none;
     position:absolute;
+    pointer-events:none;
     width:calc(#{$width} - 2px);
     height:calc(#{$height} - 2px);
     border:1px solid black;
@@ -26,6 +31,7 @@ body {
 
 #ad {
     position:relative;
+    color:black;
     display: block;
     overflow: hidden;
     width: $width;
@@ -36,10 +42,7 @@ body {
     -ms-user-select: none;
     user-select: none;
     cursor:pointer;
-    background-image:url('../images/bg.jpg');
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
+    z-index:0;
 }
 
 #banner {
@@ -50,158 +53,320 @@ body {
     overflow: hidden;
 }
 
-#top {
-    float:left;
-    position:relative;
-    height:$height;
-    margin-left:0px;
-    width:430px;
-    transition: all 200ms ease;
-}
+// #top {
+//     float:left;
+//     position:relative;
+//     height:$height;
+//     width:100%;
+// }
 
-#bottom {
-    display:table;
-    float:left;
-    position:relative;
-    height:$height;
-    width:298px;
-}
+// #bottom {
+//     float:left;
+//     position:relative;
+//     width:100%;
+//     padding-bottom:24px;
+//     padding-top:24px;
+//     height:calc(154px-48px); /* auto works, specify for clarity */
+// }
 
 .layer {
     position:absolute;
-    top:0;
     left:0;
-    height:100%;
+    height:$height;
     width:100%;
+    transition:opacity 500ms ease;
     opacity:0;
-    transition:opacity 300ms ease;
+    pointer-events:none;
+
+    perspective:100px;
+    perspective-origin: center;
+    background-color:white;
+
+    &.background {
+        background-size:cover;
+        background-position:center;
+        background-repeat:no-repeat;
+        background-image:url('../images/bg.svg');
+    }
+
+    &.show {
+        opacity:1;
+        pointer-events:auto;
+    }
 
     &-one {
         z-index:3;
-        opacity:1;
+
+        .lady {
+            opacity:0;
+            transition:opacity 200ms ease-in;
+            &.show {
+                opacity:1;
+            }
+        }
+
+        .bubble {
+            position: absolute;
+            z-index: 1;
+            width: 233px;
+            height: 200px;
+            bottom: 25px;
+            transform: rotate(-40deg);
+            opacity:0;
+            left:200px;
+            transition:left 200ms ease-in 200ms, opacity 200ms ease-in 300ms;
+            &.show {
+                left:-20px;
+                opacity:1;
+            }
+        }
+
+        .text {
+            position: absolute;
+            z-index: 2;
+            width: 155px;
+            left: 6px;
+            bottom: 39px;
+            opacity:0;
+            transition:opacity 200ms ease-in 400ms;
+            &.show {
+                opacity:1;
+            }
+        }
+
     }
+
     &-two {
         z-index:2;
+
+        .star {
+            position: absolute;
+            top: 60px;
+            left: -130px;
+            width: 400px;
+            height: 450px;
+            z-index: 1;
+
+            opacity:0;
+            transform:translateZ(-50px) rotate(480deg);
+            transition:
+                opacity 200ms ease-in,
+                transform 400ms ease-in;
+            transition-delay:100ms;
+
+            &.show {
+                opacity:1;
+                transform:translateZ(0px) rotate(-180deg);
+            }
+        }
+
+        .the, .powerball, .jackpotishere {
+            opacity:0;
+            transition:opacity 200ms ease-in 600ms;
+            &.show {
+                opacity:1;
+            }
+        }
+
+        .the {
+            position: absolute;
+            top: 221px;
+            left: 40px;
+            width: 59px;
+            z-index: 2;
+            transform: rotate(0.5deg);
+        }
+
+        .powerball {
+            position: absolute;
+            top: 44%;
+            left: 0;
+            width: 100%;
+            z-index: 2;
+            transform: rotate(-5.2deg);
+            transform-origin: center;
+        }
+
+        .jackpotishere {
+            position: absolute;
+            top: 50%;
+            left: 2.5%;
+            width: 93%;
+            z-index: 2;
+        }
+
     }
+
     &-three {
         z-index:1;
-    }
 
-    > img {
-        position:absolute;
-        top:50%;
-        left:50%;
-        width:386px;
-        height:auto;
-        transform:translate3d(-50%,-50%,0);
-    }
-}
+        .star {
+            position: absolute;
+            top: 19px;
+            left: -122px;
+            width: 400px;
+            height: 370px;
+            z-index: 1;
+            transform-origin: center;
+            opacity:0;
+            transform:translateZ(-50px) rotate(480deg);
+            transition:
+                opacity 200ms ease-in,
+                transform 400ms ease-in;
+            transition-delay:300ms;
 
-.speedometer, .shadow {
-    position:absolute;
-    top:50%;
-    left:50%;
-    width: 31%;
-    padding-bottom: 19%;
-    background-image:url('../images/guage.png');
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-    transform:translate3d(-50%,-50%,0);
-    z-index:1;
-    transition: all 200ms ease;
-}
+            &.show {
+                opacity:1;
+                transform:translateZ(0px) rotate(-5deg);
+            }
 
-.guage-svg {
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    > path {
-        fill:white;
-    }
-}
+        }
 
+        .info {
 
-.shadow {
-    border-radius:12%;
-    box-shadow:0 0 10px rgba(0,0,0,0.7);
-    z-index:0;
-}
+            transform: rotate(0deg);
 
-.speedometer {
-    perspective:100px;
-    perspective-origin: center;
-}
+            position: absolute;
+            top: 122px;
+            left:50%;
+            width: 150px;
+            z-index: 2;
+            transform: translateX(-50%) rotate(0deg);
+            opacity:0;
+            transition:
+                opacity 200ms ease-in,
+                transform 400ms ease-in;
+            transition-delay:900ms;
 
-.needle {
-    position:absolute;
-    top: 24%;
-    left: 43%;
-    width: 8%;
-    height: 55.5%;
-    transform: rotate3d(0,0,1,-90deg);
-    transform-origin: center 39px;
-}
+            &.show {
+                opacity:1;
+                transform: translateX(-50%) rotate(-5deg);
+            }
 
-.logos {
-    display: block;
-    height: 75px;
-    float: none;
-    margin: 7px auto;
-    width: 298px;
-    transition: all 200ms ease;
-}
+        }
 
-.logo {
-    position:relative;
-    display:block;
-    float:left;
-    top: 50%;
-    transform: translate3d(0,-50%,0);
-    border:0;
-    outline:none;
-    height:75px;
-    width:auto;
-    perspective:100px;
-    perspective-origin: center;
-    transform-origin: center;
-    transition:transform 200ms ease-in;
-    margin-right:10px;
-    margin-left:10px;
-    transition-property:transform, margin-right, margin-left;
-    &:hover {
-        transform:scale(1.05) translate3d(0,-50%,0);
-        transition-timing-function: ease-out;
-    }
-}
+        .amount, .drawings {
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
-.ky-logo {
-    width:161px;
-    height:75px;
-}
+        .powerball {
+            float:left;
+            position:relative;
+            width: 100%;
+            left:5px;
+        }
 
-.gambler-logo {
-    height:55px;
-    width:68px;
-}
+        .amount {
+            float:left;
+            width: 127px;
+            clear: both;
+            position: relative;
+            height: 74px;
+            margin-top: 5px;
+            border-radius:12px;
+            background-color:red;
+            padding:4px 8px 8px 8px;
 
-.first-frame {
-    #top {
-        float:left;
-        width:200px;
-        margin-left:124px;
-    }
-    .speedometer, .shadow {
-        width:65%;
-        padding-bottom:41%;
-    }
-    .logos {
-        width:298px;
-        margin-left:0;
-    }
-    .ky-logo {
-        margin-right:24px;
+            span {
+                color:white;
+                display:block;
+                width:100%;
+                clear:both;
+                float:left;
+                text-align:center;
+                line-height:1.2;
+                sup {
+                    display:block;
+                    float:left;
+                }
+                &.amount-number {
+                    font-size:45px;
+                    font-weight:bold;
+                    letter-spacing: 1px;
+                }
+                &.amount-type {
+                    font-size:16px;
+                    font-weight:bold;
+                    text-transform: uppercase;
+                }
+            }
+        }
+
+        .drawings {
+            float: left;
+            position: relative;
+            margin-top: 5px;
+            font-weight: bold;
+            color: red;
+            font-size: 12px;
+        }
+
+        .play {
+            position: absolute;
+            bottom: 187px;
+            left: 16px;
+            background: #ee3b33;
+            outline: 0;
+            padding: 10px 16px;
+            border: 3px solid white;
+            box-shadow: 5px 5px 5px rgba(0,0,0,.3);
+            perspective: 100px;
+            perspective-origin: center;
+            transform-origin: center;
+            transition: transform 200ms ease-in;
+            cursor: pointer;
+            &:hover {
+                transform:scale(1.05);
+                transition-timing-function: ease-out;
+            }
+        }
+
+        .letsplay {
+            float: left;
+            width: 90px;
+            height:auto;
+            pointer-events:none;
+        }
+
+        .logos {
+            position:absolute;
+            z-index: 10;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding-top: 24px;
+            padding-bottom: 12px;
+        }
+
+        .logo {
+            display:inline-block;
+            border:0;
+            outline:none;
+            height:auto;
+            float:none;
+            margin:6px auto;
+            perspective:100px;
+            perspective-origin: center;
+            transform-origin: center;
+            transition:transform 200ms ease-in;
+            &:hover {
+                transform:scale(1.05);
+                transition-timing-function: ease-out;
+            }
+        }
+
+        .ky-logo {
+            width: 150px;
+            height: auto;
+            float: left;
+            margin-left: 5px;
+        }
+
+        .gambler-logo {
+            width:75px;
+            height:61px;
+        }
+
     }
 }
