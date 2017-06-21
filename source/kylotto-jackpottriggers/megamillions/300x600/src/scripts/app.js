@@ -1,17 +1,29 @@
+var showClass = 'show';
 var layerArray = ['layer-one','layer-two','layer-three'];
 var secondFrameStart = 2300;
 var timeOnFrame = 3000;
 var timeouts;
 
-// t: current time, b: begInnIng value, c: change In value, d: duration
-// function easeInOutCubic(t, b, c, d) {
-// 	if ((t/=d/2) < 1) return c/2*t*t + b;
-// 	return -c/2 * ((--t)*(t-2) - 1) + b;
-// }
-
 function initAnimation() {
+	// getAjax();
 	reset();
 }
+
+// function getAjax() {
+// 	microAjax({
+// 		url: "https://www.kylottery.com/apps/rss/nextjackpots.rss",
+// 		method: "GET",
+// 		success: function(data) {
+// 			console.log(data);
+// 		},
+// 		warning: function(error) {
+// 			console.log('warnining!');
+// 		},
+// 		error: function(error) {
+// 			console.log('error!');
+// 		}
+// 	});
+// }
 
 function reset() {
 	timeouts = [];
@@ -19,6 +31,8 @@ function reset() {
 }
 
 function runAd() {
+
+	hideShow(2,0);
 
 	timeouts.push( setTimeout( function() {
 		hideShow(0,1);
@@ -28,18 +42,28 @@ function runAd() {
 		hideShow(1,2);
 	}, secondFrameStart+(timeOnFrame*1.16666) ) );
 
-	// timeouts.push( setTimeout( function() {
-	// 	hideShow(2,0);
-	// 	reset();
-	// }, secondFrameStart+(timeOnFrame*2.16666) ) );
-
 }
 
 function hideShow(cur,next) {
-	document.querySelector('.js-'+layerArray[cur]).style.opacity = 0;
-	document.querySelector('.js-'+layerArray[next]).style.opacity = 1;
-	if ( cur === 0 ) {
-		document.querySelector('.js-banner').classList.remove('first-frame');
-	}
-}
 
+	var layerOne = ['.js-geta', '.js-bang', '.js-foryour'];
+	var layerTwo = ['.js-layer2-star','.js-the', '.js-megamillions','.js-jackpotishere'];
+	var layerThree = ['.js-layer3-star', '.js-info'];
+	var layerArrays = [layerOne, layerTwo, layerThree];
+
+	// animate layer
+	document.querySelector('.js-'+layerArray[cur]).classList.remove(showClass);
+	document.querySelector('.js-'+layerArray[next]).classList.add(showClass);
+
+	// animnate layer items
+	layerArrays.forEach(function(el,i){
+		el.forEach(function(il) {
+			if ( i !== next ) {
+				document.querySelector(il).classList.remove(showClass);
+			} else {
+				document.querySelector(il).classList.add(showClass);
+			}
+		});
+	});
+
+}

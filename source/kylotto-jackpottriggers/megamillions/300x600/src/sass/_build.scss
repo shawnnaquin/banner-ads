@@ -12,6 +12,8 @@ $easeinoutexpo: cubic-bezier(1,0,0,1);
 /* large blocks
 ----------------------------------------------------------------------------------------------------------------------*/
 body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-family: $font;
     color:white;
     text-align:center;
@@ -40,7 +42,7 @@ body {
     -ms-user-select: none;
     user-select: none;
     cursor:pointer;
-    background-image:url('../images/jackpottriggers-megamillions-300x600-bg.svg');
+    background-image:url('../images/bg.svg');
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
@@ -54,12 +56,12 @@ body {
     overflow: hidden;
 }
 
-#top {
-    float:left;
-    position:relative;
-    height:$height;
-    width:100%;
-}
+// #top {
+//     float:left;
+//     position:relative;
+//     height:$height;
+//     width:100%;
+// }
 
 // #bottom {
 //     float:left;
@@ -73,16 +75,22 @@ body {
 .layer {
     position:absolute;
     left:0;
-    height:calc(100% - 48px);
+    height:$height;
     width:100%;
-    opacity:0;
     transition:opacity 500ms ease;
-    padding-top:24px;
-    padding-bottom:24px;
+    opacity:0;
+    pointer-events:none;
+
+    perspective:100px;
+    perspective-origin: center;
+
+    &.show {
+        opacity:1;
+        pointer-events:auto;
+    }
 
     &-one {
         z-index:3;
-        opacity:1;
 
         .geta {
             position:absolute;
@@ -90,6 +98,11 @@ body {
             left:15%;
             width:60%;
             z-index:2;
+            opacity:0;
+            transition:opacity 200ms ease-in;
+            &.show {
+                opacity:1;
+            }
         }
 
         .bang {
@@ -98,6 +111,18 @@ body {
             left:-15%;
             width:120%;
             z-index:1;
+
+            opacity:0;
+            transform:translateZ(-50px);
+            transition:
+                opacity 200ms ease-in,
+                transform 400ms ease-in;
+            transition-delay:300ms;
+
+            &.show {
+                opacity:1;
+                transform:translateZ(0px);
+            }
         }
 
         .foryour {
@@ -106,19 +131,16 @@ body {
             left:2.5%;
             width:95%;
             z-index:2;
+            opacity:0;
+            transition:opacity 200ms ease-in 700ms;
+            &.show {
+                opacity:1;
+            }
         }
     }
 
     &-two {
         z-index:2;
-
-        .the {
-            position:absolute;
-            top:190px;
-            left:100px;
-            width:85px;
-            z-index:2;
-        }
 
         .star {
             position:absolute;
@@ -127,6 +149,34 @@ body {
             width:500px;
             height:450px;
             z-index:1;
+
+            opacity:0;
+            transform:translateZ(-50px) rotate(480deg);
+            transition:
+                opacity 200ms ease-in,
+                transform 400ms ease-in;
+            transition-delay:100ms;
+
+            &.show {
+                opacity:1;
+                transform:translateZ(0px) rotate(0deg);
+            }
+        }
+
+        .the, .megamillions, .jackpotishere {
+            opacity:0;
+            transition:opacity 200ms ease-in 600ms;
+            &.show {
+                opacity:1;
+            }
+        }
+
+        .the {
+            position:absolute;
+            top:190px;
+            left:100px;
+            width:85px;
+            z-index:2;
         }
 
         .megamillions {
@@ -146,42 +196,77 @@ body {
             width:93%;
             z-index:2;
         }
+
     }
 
     &-three {
         z-index:1;
 
         .star {
+
             position: absolute;
             top: 0;
             left: -77px;
             width: 475px;
             height: 425px;
             z-index:1;
-            transform:rotate(5.2deg);
+
             transform-origin: center;
+
+            opacity:0;
+            transform:translateZ(-50px) rotate(480deg);
+            transition:
+                opacity 200ms ease-in,
+                transform 400ms ease-in;
+            transition-delay:300ms;
+
+            &.show {
+                opacity:1;
+                transform:translateZ(0px) rotate(0deg);
+            }
+
+        }
+
+        .info {
+
+            opacity:0;
+            transform: rotate(0deg);
+
+            position: absolute;
+            top: 114px;
+            left: 45px;
+            width: 190px;
+            z-index: 2;
+
+            transition:
+                opacity 200ms ease-in,
+                transform 400ms ease-in;
+            transition-delay:900ms;
+
+            &.show {
+                opacity:1;
+                transform:rotate(5.2deg);
+            }
+
         }
 
         .megamillions {
-            position:absolute;
-            top: 17%;
-            left: 18%;
-            width: 65%;
-            z-index:2;
-            transform:rotate(5.2deg);
-            transform-origin: center;
+            width: 100%;
+            position: relative;
+            left: 2px;
         }
 
         .amount {
-            position:absolute;
-            top: 31%;
-            left: 30%;
-            z-index:1;
+            float:left;
+            width: 127px;
+            clear: both;
+            position: relative;
+            left: 43px;
+            height: 74px;
+            margin-top: 5px;
             border-radius:12px;
             background-color:$bright-blue;
             padding:4px 8px 8px 8px;
-            transform:rotate(5.2deg);
-            transform-origin: center;
             span {
                 color:white;
                 display:block;
@@ -208,56 +293,81 @@ body {
         }
 
         .drawings {
-            position: absolute;
-            top: 46%;
-            left: 30%;
-            z-index: 1;
-            transform: rotate(5deg);
-            transform-origin: center;
+            float: left;
+            position: relative;
+            left: 47px;
+            margin-top: 5px;
             font-weight: bold;
             color: $bright-blue;
             font-size: 12px;
         }
 
+        .play {
+            position: absolute;
+            bottom: 150px;
+            left: 58px;
+            background: #ee3b33;
+            outline: none;
+            padding: 10px 16px;
+            border: 3px solid white;
+            box-shadow:5px 5px 5px transparentize(black, 0.7);
+            perspective:100px;
+            perspective-origin: center;
+            transform-origin: center;
+            transition:transform 200ms ease-in;
+            cursor:pointer;
+            &:hover {
+                transform:scale(1.05);
+                transition-timing-function: ease-out;
+            }
+        }
+
+        .letsplay {
+            float: left;
+            width: 150px;
+            height:auto;
+            pointer-events:none;
+        }
+
+        .logos {
+            position:absolute;
+            z-index: 10;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding-top: 24px;
+            padding-bottom: 12px;
+        }
+
+
+        .logo {
+            display:inline-block;
+            border:0;
+            outline:none;
+            height:auto;
+            float:none;
+            margin:10px auto;
+            perspective:100px;
+            perspective-origin: center;
+            transform-origin: center;
+            transition:transform 200ms ease-in;
+            &:hover {
+                transform:scale(1.05);
+                transition-timing-function: ease-out;
+            }
+        }
+
+        .ky-logo {
+            width:175px; /* 0.4685714286 */
+            height:82px;
+            margin-right:10px;
+        }
+
+        .gambler-logo {
+            width:75px;
+            height:61px;
+            margin-bottom:20px;
+        }
+
     }
-}
-
-.logos {
-    position:absolute;
-    z-index: 10;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding-bottom: 24px;
-    padding-top: 24px;
-}
-
-
-.logo {
-    display:inline-block;
-    border:0;
-    outline:none;
-    height:auto;
-    float:none;
-    margin:10px auto;
-    perspective:100px;
-    perspective-origin: center;
-    transform-origin: center;
-    transition:transform 200ms ease-in;
-    &:hover {
-        transform:scale(1.05);
-        transition-timing-function: ease-out;
-    }
-}
-
-.ky-logo {
-    width:175px; /* 0.4685714286 */
-    height:82px;
-    margin-right:10px;
-}
-
-.gambler-logo {
-    width:75px;
-    height:61px;
-    margin-bottom:20px;
 }
