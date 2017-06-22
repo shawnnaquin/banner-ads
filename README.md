@@ -51,7 +51,7 @@ _
 - also check against sizmek template to see if any changes have been made to the sizmek API
 
 ```
-"./source/somename/1st-type/160x600/",
+"./source/somename/1st-type/300x600/",
 ```
 
 #### individual gulpfiles
@@ -123,13 +123,13 @@ _
 changes will be watched and served from `./build/`
 
 ```sh
-$ cd "./source/somename/1st-type/160x600
+$ cd "./source/somename/1st-type/300x600"
 $ gulp serve
 ```
 
 - images are NOT watched on change
 - if you add or change an image you must kill the serve task and rerun `gulp serve`
-- the images are then moved to your individual ad's build directory `./build/somename-1sttype-160x300-build/images/**`
+- the images are then moved to your individual ad's build directory `./build/somename-1sttype-300x600-build/images/**`
 
 _
 
