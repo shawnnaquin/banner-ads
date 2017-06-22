@@ -76,7 +76,14 @@ also refactor `./source/somename/somename.html` (the landing page)
 
 - specified in `projects.json` 
 - the assets for this landing page can be found in `./build/index-assets/`
-- `somename.html` will be automatically moved and renamed to `index.html` in the `./build/` directory
+- `./source/somename/somename.html` will be copied and renamed to `./build/index.html`
+- serving an individual ad or build all ads will perform this tasks
+
+- to ftp only the index
+
+```sh
+$ npm run ftpIndex
+```
 
 example markup for landing page:
 
@@ -127,21 +134,22 @@ _
 - Always check `package.json` for the latest npm scripts
 - All `gulpfile.js` tasks have a npm script alias
 - `package.json` npm scripts combine several gulp and npm scripts to create various build tasks
+- sometimes individual gulp tasks come in handy
 - you will usually build via npm scripts
-- sometimes an individual gulp task will come in handy
 
 #### versioning
-
-- run the version command **before** building\
-- the zip version will be replaced by an automatically injected javascript line when you build all ads.
 
 ```sh
 $ npm run version
  ```
 
+ - run the version command **before** building
+ - the zip version will be replaced in `./build/index.html`
+ - the zip version is automatically injected javascript line when you build via one of the below commands
+
 #### building
 
-- a few differnt options exist for building
+- a few different options exist for building
 - always check `package.json` scripts for the latest
 
 ```sh
@@ -160,3 +168,11 @@ allftp:
 allserve:
     all, serve (no ftp)
 ```
+
+#### custom building
+
+- it is possible to manipulate the build process by combining or using any other combination of npm scripts and gulp tasks to accomplish almost anything you need to do
+- if you alter the npm scripts, gulp tasks or project structure please update the readme!
+- see Shawn for further information
+- happy building!
+
