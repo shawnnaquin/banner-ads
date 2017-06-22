@@ -2,14 +2,19 @@
 ----------------------------------------------------------------------------------------------------------------------*/
 $width:300px;
 $height:250px;
+$bright-blue:#1b2aec;
+$font: Verdana, Geneva, sans-serif;
 $easeoutback: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 $easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1);
 $easeinoutexpo: cubic-bezier(1,0,0,1);
 
+
 /* large blocks
 ----------------------------------------------------------------------------------------------------------------------*/
 body {
-    font-family: 'Helvetica', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: $font;
     color:white;
     text-align:center;
     margin: 0px;
@@ -26,6 +31,8 @@ body {
 
 #ad {
     position:relative;
+    color:black;
+    position:relative;
     display: block;
     overflow: hidden;
     width: $width;
@@ -36,10 +43,7 @@ body {
     -ms-user-select: none;
     user-select: none;
     cursor:pointer;
-    background-image:url('../images/bg.jpg');
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
+    z-index:0;
 }
 
 #banner {
@@ -50,132 +54,315 @@ body {
     overflow: hidden;
 }
 
-#top {
-    float:left;
-    position:relative;
-    height:190px;
-    width:100%;
-}
+// #top {
+//     float:left;
+//     position:relative;
+//     height:$height;
+//     width:100%;
+// }
 
-#bottom {
-    float:left;
-    position:relative;
-    height:60px;
-    width:100%;
-}
+// #bottom {
+//     float:left;
+//     position:relative;
+//     width:100%;
+//     padding-bottom:24px;
+//     padding-top:24px;
+//     height:calc(154px-48px); /* auto works, specify for clarity */
+// }
 
 .layer {
     position:absolute;
-    top:0;
     left:0;
-    height:100%;
+    height:$height;
     width:100%;
+    transition:opacity 500ms ease;
     opacity:0;
-    transition:opacity 300ms ease;
+    pointer-events:none;
+
+    perspective:100px;
+    perspective-origin: center;
+    background-color:white;
+
+    &.background {
+        background-size:cover;
+        background-position:center;
+        background-repeat:no-repeat;
+        background-image:url('../images/bg.svg');
+    }
+
+    &.show {
+        opacity:1;
+        pointer-events:auto;
+    }
 
     &-one {
         z-index:3;
-        opacity:1;
+
+        .lady {
+            opacity:0;
+            transition:opacity 200ms ease-in;
+            &.show {
+                opacity:1;
+            }
+        }
+
+        .bubble {
+            position: absolute;
+            z-index: 1;
+            width: 262px;
+            height: 224px;
+            bottom: 30px;
+            opacity:0;
+            left:200px;
+            transition:left 200ms ease-in 200ms, opacity 200ms ease-in 300ms;
+            &.show {
+                left:-40px;
+                opacity:1;
+            }
+        }
+
+        .text {
+            position: absolute;
+            z-index: 2;
+            width: 140px;
+            left: 20px;
+            bottom: 74px;
+            opacity:0;
+            transition:opacity 200ms ease-in 400ms;
+            &.show {
+                opacity:1;
+            }
+        }
+
     }
+
     &-two {
         z-index:2;
+
+        .star {
+            position:absolute;
+            top:-30px;
+            left:-78px;
+            width:480px;
+            height:290px;
+            z-index:1;
+            opacity:0;
+            transform:translateZ(-50px) rotate(480deg);
+            transition:
+                opacity 200ms ease-in,
+                transform 400ms ease-in;
+            transition-delay:100ms;
+
+            &.show {
+                opacity:1;
+                transform:translateZ(0px) rotate(-5deg);
+            }
+        }
+
+        .the, .powerball, .jackpotishere {
+            opacity:0;
+            transition:opacity 200ms ease-in 600ms;
+            &.show {
+                opacity:1;
+            }
+        }
+
+        .the {
+            position: absolute;
+            top: 48px;
+            left: 110px;
+            width: 60px;
+            z-index: 2;
+        }
+
+        .powerball {
+            position: absolute;
+            top: 84px;
+            left: 10%;
+            width: 80%;
+            z-index: 2;
+            transform: rotate(-5.2deg);
+            transform-origin: center;
+        }
+
+        .jackpotishere {
+            position:absolute;
+            top:120px;
+            left:7.5%;
+            width:85%;
+            z-index:2;
+        }
+
     }
+
     &-three {
         z-index:1;
+
+        .star {
+
+            position:absolute;
+            top:-40px;
+            left:-75px;
+            width:460px;
+            height:280px;
+            z-index:1;
+            transform-origin: center;
+
+            opacity:0;
+            transform:translateZ(-50px) rotate(480deg);
+            transition:
+                opacity 200ms ease-in,
+                transform 400ms ease-in;
+            transition-delay:300ms;
+
+            &.show {
+                opacity:1;
+                transform:translateZ(0px) rotate(-5deg);
+            }
+
+        }
+
+        .info {
+
+            transform: rotate(0deg);
+
+            position: absolute;
+            top: 35px;
+            left: 48%;
+            width: 190px;
+            z-index: 2;
+            transform: translateX(-50%) rotate(0deg);
+            opacity:0;
+            transition:
+                opacity 200ms ease-in,
+                transform 400ms ease-in;
+            transition-delay:900ms;
+
+            &.show {
+                opacity:1;
+                transform: translateX(-50%) rotate(-5deg);
+            }
+
+        }
+
+        .amount, .drawings {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .powerball {
+            float:left;
+            position:relative;
+            width: 110%;
+            left:-5%;
+        }
+
+        .amount {
+            float:left;
+            clear: both;
+            position: relative;
+            margin-top: 3px;
+            margin-bottom: 3px;
+            border-radius:12px;
+            background-color:red;
+            padding:4px 8px 8px 8px;
+
+            span {
+                color:white;
+                display:block;
+                width:100%;
+                clear:both;
+                float:left;
+                text-align:center;
+                line-height:1;
+                sup {
+                    display:block;
+                    float:left;
+                }
+                &.amount-number {
+                    font-size:33px;
+                    font-weight:bold;
+                    letter-spacing: 1px;
+                }
+                &.amount-type {
+                    font-size:16px;
+                    font-weight:bold;
+                    text-transform: uppercase;
+                }
+            }
+        }
+
+        .drawings {
+            float: left;
+            position: relative;
+            font-weight: bold;
+            color: red;
+            font-size: 10px;
+            width:100%;
+        }
+
+        .logos {
+            position:absolute;
+            z-index: 10;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding-bottom:4px;
+        }
+
+
+        .logo {
+            display:block;
+            float:left;
+            border:0;
+            outline:none;
+            height:auto;
+            perspective:100px;
+            perspective-origin: center;
+            transform-origin: center;
+            transition:transform 200ms ease-in;
+            &:hover {
+                transform:scale(1.05);
+                transition-timing-function: ease-out;
+            }
+        }
+
+        .play {
+            background: #ee3b33;
+            outline: none;
+            border: 2px solid white;
+            box-shadow:5px 5px 5px transparentize(black, 0.7);
+            perspective:100px;
+            perspective-origin: center;
+            transform-origin: center;
+            transition:transform 200ms ease-in;
+            cursor:pointer;
+            margin-right:9px;
+            margin-top:20px;
+            padding:6px 10px;
+            &:hover {
+                transform:scale(1.05);
+                transition-timing-function: ease-out;
+            }
+        }
+
+        .letsplay {
+            float: left;
+            width: 75px;
+            height:auto;
+            pointer-events:none;
+        }
+
+        .ky-logo {
+            width:115px; /* 0.4685714286 */
+            margin-right:4px;
+            margin-left:4px;
+        }
+
+        .gambler-logo {
+            margin-top:3px;
+            width:60px;
+        }
+
     }
-
-    > img {
-        position:absolute;
-        top:50%;
-        left:50%;
-        width:95%;
-        height:auto;
-        transform:translate3d(-50%,-50%,0);
-    }
-}
-
-.speedometer, .shadow {
-    position:absolute;
-    top:50%;
-    left:50%;
-    width:90%;
-    padding-bottom:56.43%;
-    background-image:url('../images/guage.png');
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-    transform:translate3d(-50%,-50%,0);
-    z-index:1;
-}
-
-.guage-svg {
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    > path {
-        fill:white;
-    }
-}
-
-.shadow {
-    border-radius:12%;
-    box-shadow:0 6px 10px rgba(0,0,0,0.7);
-    z-index:0;
-}
-
-.speedometer {
-    perspective:100px;
-    perspective-origin: center;
-}
-
-.needle {
-    position:absolute;
-    top: 23%;
-    left: 43%;
-    width: 8%;
-    height: 55.5%;
-    transform-origin: center 83px;
-    transform:rotate3d(0,0,1,-90deg);
-    transform-origin: center 83px;
-}
-
-.logos {
-    display: table;
-    margin-top: 5px;
-    height: 50px;
-    width: 100%;
-}
-
-.logo {
-    display:table-cell;
-    vertical-align: middle;
-    position:relative;
-    display:inline-block;
-    border:0;
-    outline:none;
-    height:50px;
-    width:auto;
-    float:none;
-    perspective:100px;
-    perspective-origin: center;
-    transform-origin: center;
-    transition:transform 200ms ease-in;
-    margin-right:5px;
-    margin-left:5px;
-    &:hover {
-        transform:scale(1.05);
-        transition-timing-function: ease-out;
-    }
-}
-
-.ky-logo {
-    height:50px;
-    width:107px;
-}
-
-.gambler-logo {
-    height:35px;
-    width:44px;
 }
