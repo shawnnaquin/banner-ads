@@ -6,7 +6,7 @@ _
 ```json
 {
     "host": "tbg.l2.design",
-    "user": "**,
+    "user": "**",
     "pass": "**",
     "remotePath": "/tbg.l2.design/somename/"
 }
