@@ -3,6 +3,7 @@
 _
 
 #### .secret.json
+
 ```json
 {
     "host": "tbg.l2.design",
@@ -11,9 +12,11 @@ _
     "remotePath": "/tbg.l2.design/somename/"
 }
 ```
+
 #### projects.json
 - Add a project or change the `projects.json` if starting new ads
 - Be sure to actually create the directories
+
 ```json
 "somename": {
 	"somename-version": "1.0.0",
