@@ -28,7 +28,7 @@ _
 		"./source/somename/1st-type/160x600/",
 		"./source/somename/1st-type/300x250/",
 		"./source/somename/2nd-type/160x600/",
-		"./source/somename/2nd-type/300x250/"
+		"./source/somename/2nd-type/300x600/"
 	]
 },
 
