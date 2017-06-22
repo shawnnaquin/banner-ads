@@ -4,6 +4,8 @@ _
 
 #### .secret.json
 
+- create the file `.secret.json` in the root directory for ftp access
+
 ```json
 {
     "host": "tbg.l2.design",
