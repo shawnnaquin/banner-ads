@@ -150,7 +150,7 @@ $ npm run allftp
 $ npm run allserve
  ```
 
-```json
+```
 all:
     clean, build, zip, rename
 
