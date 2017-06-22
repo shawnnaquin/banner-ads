@@ -54,18 +54,19 @@ _
 "./source/somename/1st-type/160x600/",
 ```
 
-#### individual ad gulpfile
+#### individual gulpfiles
 
-- each ad comes with it's own gulpfile.
-- find and replace this line (in each individual ad directory):
+- each ad comes with it's own `gulpfile.js`.
+- find and replace the target build directory line (in each individual ad's directory):
+- depending on your structure (if you have 'types' or not) the build directory might be one more up or down in the nav tree
 
 ```javascript
-build = '../../../build/somename-1stttype-300x600-build/',
+build = '../../../../build/somename-1stttype-300x600-build/',
 ```
 
 #### enabling extras
 
-- you may want to enable, css/js maps, linters, or beautify the output,
+- you may want to enable, css/js maps, linters, beautify the output, uncollapse whitspace, etc,
 - find and uncomment the lines in each ad's individual `gulpfile.js`
 - be sure to comment them back when building for production!
 
@@ -75,7 +76,7 @@ also refactor `./source/somename/somename.html` (the landing page)
 
 - specified in `projects.json` 
 - the assets for this landing page can be found in `./build/index-assets/`
-- the file will be automatically moved and renamed to index.html in the `./build/` directory
+- `somename.html` will be automatically moved and renamed to `index.html` in the `./build/` directory
 
 example markup for landing page:
 
@@ -142,6 +143,12 @@ $ npm run version
 
 - a few differnt options exist for building
 - always check `package.json` scripts for the latest
+
+```sh
+$ npm run all
+$ npm run allftp
+$ npm run allserve
+ ```
 
 ```json
 all:
