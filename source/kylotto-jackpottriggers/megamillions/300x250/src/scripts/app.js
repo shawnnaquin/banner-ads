@@ -6,7 +6,7 @@ var timeouts;
 
 function initAnimation() {
 	// getAjax();
-	// reset();
+	reset();
 }
 
 // function getAjax() {
