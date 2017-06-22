@@ -39,9 +39,11 @@ gulp.task('sass', function () {
 
 // Browser sync task: to launch a server and auto-reload
 gulp.task('browser-sync', ['default'], function () {
-	browserSync({ server: {
-		baseDir: build
-	}});
+	browserSync({
+		server: {
+			baseDir: build
+		}
+	});
 });
 
 
