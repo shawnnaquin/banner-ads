@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="star" viewBox="0 0 431 283" style="enable-background:new 0 0 431 283;" preserveAspectRatio="none">
+	<defs>
+		<filter xmlns="http://www.w3.org/2000/svg" id="starshadow" x="0" y="0" width="200%" height="200%">
+			<feOffset result="offOut" in="SourceAlpha" dx="10" dy="10"/>
+			<feGaussianBlur result="blurOut" in="offOut" stdDeviation="5"/>
+			<feComponentTransfer xmlns="http://www.w3.org/2000/svg" result="aout" in="blurOut">
+			<feFuncA type="linear" slope="0.5"/>
+			</feComponentTransfer>
+			<feBlend in="SourceGraphic" in2="aout" mode="normal"/>
+		</filter>
+		<style>
+			.outerstar {
+				fill:#FFF200;
+				filter:url(#starshadow);
+			}
+			.innerstar {
+				fill:#FFFFFF;
+			}
+		</style>
+	</defs>
+  <path d="M209.2 8.1s-17.5 58.3-53.5 57.6-88.1-25.4-88.1-25.4S97.3 59.9 93.3 86c-4 26-85.1 29.9-85.1 29.9s67 15.2 65.5 42.3c-1.5 27.1-40.4 44.2-40.4 44.2s67.7-11 89 3.9c23.7 16.6 16.8 54 16.8 54s38.2-35.7 70.3-34.4c32.1 1.4 69.3 35 69.3 35s-5.3-39.4 18.5-54.3c23.9-14.8 89.5-3.3 89.5-3.3s-42.9-24.8-42-44.8c1.1-25.6 63.7-42.6 63.7-42.6S346.6 112 331 96c-20.5-21 8.9-56.9 8.9-56.9S294 65 261.3 62.8c-32.6-2.2-52.1-54.7-52.1-54.7z" class="outerstar"/>
+  <path d="M207.2 19.7s-15.8 52.6-48.2 52c-32.4-.6-79.6-23-79.6-23s26.9 17.7 23.3 41.2-76.8 27-76.8 27 60.5 13.7 59.1 38.2C83.7 179.6 48.5 195 48.5 195s61.1-9.9 80.3 3.5c21.4 15 15.1 48.7 15.1 48.7s34.5-32.3 63.4-31 62.5 31.5 62.5 31.5-4.8-35.6 16.7-49c21.5-13.4 80.8-2.9 80.8-2.9s-38.7-22.4-37.9-40.4c1-23.1 57.5-38.5 57.5-38.5s-55.8-3.7-69.8-18c-18.5-18.9 8.1-51.3 8.1-51.3s-41.5 23.5-71 21.4-47-49.3-47-49.3z" class="innerstar"/>
+</svg>
