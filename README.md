@@ -79,7 +79,7 @@ also refactor `./source/somename/somename.html` (the landing page)
 - `./source/somename/somename.html` will be copied and renamed to `./build/index.html`
 - serving an individual ad or build all ads will perform this tasks
 
-- to ftp only the index
+to ftp only the index
 
 ```sh
 $ npm run ftpIndex
