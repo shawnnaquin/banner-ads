@@ -43,35 +43,41 @@ _
 # SIZMEK TEMPLATE
 
 #### copy markup
-copy and paste an ad into ad directories
-be sure to check which was the last ad to find the most current project template
-also check against sizmek template to see if any changes have been made to the sizmek API
+
+- copy and paste an ad into ad directories
+- be sure to check which was the last ad to find the most current project template
+- also check against sizmek template to see if any changes have been made to the sizmek API
+
 ```
 "./source/somename/1st-type/160x600/",
 ```
 
 #### individual ad gulpfile
-each ad comes with it's own gulpfile.
-find and replace this line:
+
+- each ad comes with it's own gulpfile.
+- find and replace this line:
+
 ```javascript
 build = '../../../build/somename-1stttype-300x600-build/',
 ```
 
 #### enabling extras
-you may want to enable, css/js maps, linters, or beautify the output,
-find and uncomment the lines in each ad's `individual gulpfile.js`
 
-be sure to comment them back when building for production!
+- you may want to enable, css/js maps, linters, or beautify the output,
+- find and uncomment the lines in each ad's `individual gulpfile.js`
+- be sure to comment them back when building for production!
 
 #### building the landing page
 
 also refactor `./source/somename/somename.html` (the landing page) 
+
 - specified in `projects.json` 
 - the assets for this landing page can be found in `./build/index-assets/`
 - the zip version will be replaced by an automatically injected javascript line when you build all ads.
 - the file will be automatically moved and renamed to index.html in the `./build/` directory
 
-example markup for landing page
+example markup for landing page:
+
 ```html 
     <div class="list">
 
@@ -104,24 +110,31 @@ example markup for landing page
 _
 
 # SINGLE AD - BUILD/TEST
+
 changes will be watched
+
 ```sh
 $ cd "./source/somename/1st-type/160x600
 $ gulp serve
 ```
-
 _
 
 # ALL ADS - BUILD/TEST
-Always check `gulpfile.js` and `package.json` for the latest **npm scripts** and **gulp tasks**
+
+- Always check `gulpfile.js` and `package.json` for the latest **npm scripts** and **gulp tasks**
 
 #### versioning
-run the version command **before** building
+
+- run the version command **before** building
+
 ```sh
 $ npm run version
  ```
+
 #### building
-a few differnt options exist for building, always check `package.json` scripts for the latest
+
+- a few differnt options exist for building
+- always check `package.json` scripts for the latest
 
 ```json
 all:
