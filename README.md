@@ -55,7 +55,7 @@ _
 #### individual ad gulpfile
 
 - each ad comes with it's own gulpfile.
-- find and replace this line:
+- find and replace this line (in each individual ad directory):
 
 ```javascript
 build = '../../../build/somename-1stttype-300x600-build/',
@@ -64,7 +64,7 @@ build = '../../../build/somename-1stttype-300x600-build/',
 #### enabling extras
 
 - you may want to enable, css/js maps, linters, or beautify the output,
-- find and uncomment the lines in each ad's `individual gulpfile.js`
+- find and uncomment the lines in each ad's individual `gulpfile.js`
 - be sure to comment them back when building for production!
 
 #### building the landing page
@@ -73,7 +73,6 @@ also refactor `./source/somename/somename.html` (the landing page)
 
 - specified in `projects.json` 
 - the assets for this landing page can be found in `./build/index-assets/`
-- the zip version will be replaced by an automatically injected javascript line when you build all ads.
 - the file will be automatically moved and renamed to index.html in the `./build/` directory
 
 example markup for landing page:
@@ -111,7 +110,7 @@ _
 
 # SINGLE AD - BUILD/TEST
 
-changes will be watched
+changes will be watched and served from `./build/`
 
 ```sh
 $ cd "./source/somename/1st-type/160x600
@@ -121,11 +120,17 @@ _
 
 # ALL ADS - BUILD/TEST
 
-- Always check `gulpfile.js` and `package.json` for the latest **npm scripts** and **gulp tasks**
+- Always check `gulpfile.js` for latest gulp tasks
+- Always check `package.json` for the latest npm scripts
+- All `gulpfile.js` tasks have a npm script alias
+- `package.json` npm scripts combine several gulp and npm scripts to create various build tasks
+- you will usually build via npm scripts
+- sometimes an individual gulp task will come in handy
 
 #### versioning
 
-- run the version command **before** building
+- run the version command **before** building\
+- the zip version will be replaced by an automatically injected javascript line when you build all ads.
 
 ```sh
 $ npm run version
