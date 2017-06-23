@@ -1,6 +1,7 @@
 # SETUP
 
-_
+The purpose of this project is to control and build seperate groups of multiple size banner ads, organized by type into subdirectories, at one time,
+while also preserving the structure of previous groups of ads in the same repo.
 
 #### .secret.json
 
