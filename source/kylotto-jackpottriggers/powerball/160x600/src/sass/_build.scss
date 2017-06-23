@@ -316,17 +316,16 @@ body {
             transform-origin: center;
             transition: transform 200ms ease-in;
             cursor: pointer;
+            color:white;
+            font-weight:bold;
+            letter-spacing:1px;
+            font-style:italic;
+            text-transform: uppercase;
+            font-size:13px;
             &:hover {
                 transform:scale(1.05);
                 transition-timing-function: ease-out;
             }
-        }
-
-        .letsplay {
-            float: left;
-            width: 90px;
-            height:auto;
-            pointer-events:none;
         }
 
         .logos {
