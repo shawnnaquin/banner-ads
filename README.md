@@ -35,7 +35,7 @@ _
 ```
 
 #### gulpfile
-Change the project name in `./ads/gulpfile.js`
+Change the project name in `./gulpfile.js`
 
 ```javascript
 var	projectName = 'somename';
