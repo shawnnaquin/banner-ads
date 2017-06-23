@@ -86,6 +86,8 @@ $ npm run ftpIndex
 ```
 
 example markup for landing page:
+(be sure to keep the `<!-- inject-->` line before the `</body>` tag)
+
 
 ```html 
     <div class="list">
@@ -115,6 +117,11 @@ example markup for landing page:
             ...
         </div>
     </div>
+
+        ...
+        <!-- inject -->
+
+    </body>
 ```
 _
 
