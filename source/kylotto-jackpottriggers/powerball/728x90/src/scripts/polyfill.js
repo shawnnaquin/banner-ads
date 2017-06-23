@@ -1,140 +1,61 @@
-  //requestAnimationFrame polyfill | Milos Djakonovic ( @Miloshio ) | MIT | https://github.com/milosdjakonovic/requestAnimationFrame-polyfill
+/*global XMLHttpRequest */
 
-  /**
-   * 
-   * How many times should polyfill call
-   * update callback? By canon, it should
-   * be 60 times per second, so that ideal
-   * framerate 60fps could be reached.
-   *
-   * However, even native implementations
-   * of requestAnimationFrame often cannot
-   * do 60fps, but, unlike any polyfill,
-   * they can synchronise achievable fps
-   * rate with screen refresh rate.
-   *
-   * So, leave this value 1000/60 unless
-   * you target specific browser on spec
-   * ific device that is going to work 
-   * better with custom value. I think
-   * that this is the longest comment I've
-   * written on single variable so far.
-  **/ 
-  var FRAME_RATE_INTERVAL = 1000/60,
-
-  /**
-   * All queued callbacks in given cycle.
-  **/ 
-  allCallbacks = [],
-  
-  executeAllScheduled = false,
-  
-  shouldCheckCancelRaf = false,
-  
-  /**
-   * Callbacks queued for cancellation.
-  **/ 
-  callbacksForCancellation = [],
-  
-  /**
-   * Should callback be cancelled?
-   * @param cb - callback
-  **/ 
-  isToBeCancelled = function(cb){
-    for(var i=0;i<callbacksForCancellation.length;i++){
-      if(callbacksForCancellation[i] === cb ){
-        callbacksForCancellation.splice(i,1);
-        return true;
-      }
-    }
-  },
-  
-  
-  
-  /**
-   * 
-   * Executes all (surprise) callbacks in
-   * and removes them from callback queue.
-   *
-  **/
-  executeAll = function(){
-    executeAllScheduled = false;
-    var _allCallbacks = allCallbacks;
-    allCallbacks = [];
-    for(var i=0;i<_allCallbacks.length;i++){
-      if(shouldCheckCancelRaf===true){
-        if (isToBeCancelled(_allCallbacks[i])){
-          shouldCheckCancelRaf = false;
-          return;
-        }
-      }
-      _allCallbacks[i].apply(w, [ new Date().getTime() ] );
-    }
-  },
-  
-  /**
-   *
-   * requestAnimationFrame polyfill
-   * @param callback - callback to be queued & executed | executed
-   * @return callback
-   * 
-  **/ 
-  raf = function(callback){
-    allCallbacks.push(callback);
-    if(executeAllScheduled===false){
-      w.setTimeout(executeAll, FRAME_RATE_INTERVAL);
-      executeAllScheduled = true;
-    }
-    return callback;
-  },
-
-  /**
-   *
-   * Cancels raf.
-  **/ 
-  cancelRaf = function(callback){
-    callbacksForCancellation.push(callback);
-    shouldCheckCancelRaf = true;
-  },
+/*
+ * microAjax
+ * Created 2015-2016 Caleb Ely
+ * <http://CodeTri.net>
+ *
+ * Licensed under The MIT License
+ * <http://opensource.org/licenses/MIT/>
+ */
 
 
-  //https://gist.github.com/paulirish/1579671
-  vendors = ['ms', 'moz', 'webkit', 'o'];
+/**
+ * Perform a simple async AJAX request.
+ * @param {Object} options.<[method=GET], url, data,
+ *                                        [success=function], [warning=function], [error=function]>
+ *                 method: GET or POST.
+ *                 url: The URL to contact.
+ *                 data: the content to send to the page.
+ *                 success: Code to run on request success.
+ *                 warning: Code to run on request warning.
+ *                 error: Code to run on request error.
+ */
+function microAjax(options) {
+  "use strict";
 
-    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-        window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
-        window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame'] 
-        || w[vendors[x]+'CancelRequestAnimationFrame'];
-    }
-
-  if (!window.requestAnimationFrame) window.requestAnimationFrame = raf;
-  if (!window.cancelAnimationFrame)  window.cancelAnimationFrame  = cancelRaf;  
-
-  // querySelector Polyfill
-  if (!document.querySelectorAll) {
-    document.body.className += ' red';
-    document.querySelectorAll = function (selectors) {
-      var style = document.createElement('style'), elements = [], element;
-      document.documentElement.firstChild.appendChild(style);
-      document._qsa = [];
-
-      style.styleSheet.cssText = selectors + '{x-qsa:expression(document._qsa && document._qsa.push(this))}';
-      window.scrollBy(0, 0);
-      style.parentNode.removeChild(style);
-
-      while (document._qsa.length) {
-        element = document._qsa.shift();
-        element.style.removeAttribute('x-qsa');
-        elements.push(element);
-      }
-      document._qsa = null;
-      return elements;
-    };
+  // Default to GET
+  if (!options.method) {
+    options.method = "GET";
   }
 
-  if (!document.querySelector) {
-    document.querySelector = function (selectors) {
-      var elements = document.querySelectorAll(selectors);
-      return (elements.length) ? elements[0] : null;
-    };
+  // Default empty functions for the callbacks
+  function noop() {}
+  if (!options.success) {
+    options.success = noop;
   }
+  if (!options.warning) {
+    options.warning = noop;
+  }
+  if (!options.error) {
+    options.error = noop;
+  }
+
+  var request = new XMLHttpRequest();
+  request.open(options.method, options.url, true);
+  request.send(options.data);
+
+  request.onload = function() {
+    // Success!
+    if (request.readyState === 4 && request.status === 200) {
+      options.success(request.responseText);
+
+      // We reached our target destination, but it returned an error
+    } else {
+      options.warning();
+    }
+  };
+
+  // There was a connection error of some sort
+  request.onerror = options.error;
+}
