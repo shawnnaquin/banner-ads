@@ -232,7 +232,7 @@ body {
             background-color: #1b2aec;
             padding: 2px 4px 4px;
             z-index: 2;
-            span {
+            .amount-number,.amount-type {
                 color:white;
                 display:block;
                 width:100%;
@@ -244,16 +244,16 @@ body {
                     display:block;
                     float:left;
                 }
-                &.amount-number {
-                    font-size:22px;
-                    font-weight:bold;
-                    letter-spacing: 1px;
-                }
-                &.amount-type {
-                    font-size:10px;
-                    font-weight:bold;
-                    text-transform: uppercase;
-                }
+            }
+            .amount-number {
+                font-size:22px;
+                font-weight:bold;
+                letter-spacing: 1px;
+            }
+            .amount-type {
+                font-size:10px;
+                font-weight:bold;
+                text-transform: uppercase;
             }
         }
 
@@ -284,6 +284,7 @@ body {
             padding: 4px;
             border: 1px solid white;
             box-shadow:2px 2px 2px transparentize(black, 0.7);
+            cursor:pointer;
         }
 
         .letsplay {
@@ -303,17 +304,23 @@ body {
         .responsible {
             position:absolute;
             top:28px;
-            right:3px;
+            right:1px;
             font-weight:bold;
             font-size:9px;
             color:black;
             letter-spacing:-1px;
             font-family: $condensed-family;
             transition:none;
-            cursor:auto;
+            cursor:pointer;
             &:hover {
-                transform:scale(1)
+                transform:scale(1);
             }
+        }
+
+        .responsible-image {
+            float:left;
+            width:81px;
+            height:12px;
         }
 
     }

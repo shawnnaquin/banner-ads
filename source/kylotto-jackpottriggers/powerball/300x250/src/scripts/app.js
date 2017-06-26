@@ -1,29 +1,32 @@
 var showClass = 'show';
 var layerArray = ['layer-one','layer-two','layer-three'];
-var secondFrameStart = 2300;
-var timeOnFrame = 3000;
+var frameStarts = [2800, 5800];
 var timeouts;
+var KYObj, PBNum, MMNum;
 
 function initAnimation() {
-	// getAjax();
+	getAjax();
 	reset();
 }
 
-// function getAjax() {
-// 	microAjax({
-// 		url: "https://www.kylottery.com/apps/rss/nextjackpots.rss",
-// 		method: "GET",
-// 		success: function(data) {
-// 			console.log(data);
-// 		},
-// 		warning: function(error) {
-// 			console.log('warnining!');
-// 		},
-// 		error: function(error) {
-// 			console.log('error!');
-// 		}
-// 	});
-// }
+function getAjax() {
+	microAjax({
+		url: "//accelerator.buntingroup.com/kylotto",
+		method: "GET",
+		success: function(data) {
+			KYObj = JSON.parse(data);
+			PBNum = KYObj.channel.item[0].description;
+			// MMNum = KYObj.channel.item[1].description;
+			document.querySelector('.js-amount-number').innerHTML = PBNum;
+		},
+		warning: function(error) {
+			console.log('warnining!', error);
+		},
+		error: function(error) {
+			console.log('error!', error);
+		}
+	});
+}
 
 function reset() {
 	timeouts = [];
@@ -36,11 +39,11 @@ function runAd() {
 
 	timeouts.push( setTimeout( function() {
 		hideShow(0,1);
-	}, secondFrameStart) );
+	}, frameStarts[0] ));
 
 	timeouts.push( setTimeout( function() {
 		hideShow(1,2);
-	}, secondFrameStart+(timeOnFrame*1.16666) ) );
+	}, frameStarts[1] ));
 
 }
 

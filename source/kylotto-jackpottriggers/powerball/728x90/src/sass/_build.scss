@@ -243,7 +243,7 @@ body {
             background-color:red;
             padding:4px 14px;
             z-index:2;
-            span {
+            .amount-number, .amount-type {
                 color:white;
                 display:block;
                 float:left;
@@ -253,18 +253,18 @@ body {
                     display:block;
                     float:left;
                 }
-                &.amount-number {
-                    font-size:33px;
-                    font-weight:bold;
-                    letter-spacing: 1px;
-                    margin-right:2px;
-                }
-                &.amount-type {
-                    font-size:16px;
-                    font-weight:bold;
-                    text-transform: uppercase;
-                    margin-top:14px;
-                }
+            }
+            .amount-number {
+                font-size:33px;
+                font-weight:bold;
+                letter-spacing: 1px;
+                margin-right:2px;
+            }
+            .amount-type {
+                font-size:16px;
+                font-weight:bold;
+                text-transform: uppercase;
+                margin-top:14px;
             }
         }
 
@@ -275,7 +275,7 @@ body {
             z-index:2;
             font-weight: bold;
             color: red;
-            font-size: 14px;
+            font-size: 12px;
             width:100%;
         }
 
@@ -322,17 +322,22 @@ body {
             width:150px; /* 0.4685714286 */
         }
 
+        .responsible-image {
+            float:left;
+            width:170px;
+            height:25px;
+        }
+
         .responsible {
             position:absolute;
             top:60px;
-            right:20px;
+            right:13px;
             font-weight:bold;
             font-size:16px;
             color:black;
-            letter-spacing:-1px;
             font-family: $condensed-family;
             transition:none;
-            cursor:auto;
+            cursor:pointer;
             &:hover {
                 transform:scale(1)
             }

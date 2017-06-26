@@ -48,11 +48,11 @@ gulp.task('browser-sync', ['default'], function () {
 // Scripts task: Compile TypeScript files to js
 gulp.task('scripts', function () {
   return gulp.src([ paths.scripts + 'polyfill.js', paths.scripts + 'app.js', paths.scripts + 'script.js' ])
-	// .pipe(jslint())
-	// .pipe(maps.init())
-	// .pipe(maps.write())
+	.pipe(jslint())
+	.pipe(maps.init())
+	.pipe(maps.write())
 	.pipe(concat('scripts.js'))
-	.pipe(uglify())
+	// .pipe(uglify())
 	.pipe(gulp.dest(paths.js))
 	.pipe(browserSync.reload({ stream: true })); // Reload browser
 });

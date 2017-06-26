@@ -224,7 +224,7 @@ body {
             background-color: red;
             padding: 2px 8px 3px;
             z-index: 2;
-            span {
+            .amount-number, .amount-type {
                 color:white;
                 display:block;
                 float:left;
@@ -234,18 +234,18 @@ body {
                     display:block;
                     float:left;
                 }
-                &.amount-number {
-                    font-size:18px;
-                    font-weight:bold;
-                    letter-spacing: 1px;
-                    margin-right:2px;
-                }
-                &.amount-type {
-                    font-size:10px;
-                    font-weight:bold;
-                    text-transform: uppercase;
-                    margin-top:6px;
-                }
+            }
+            .amount-number {
+                font-size:18px;
+                font-weight:bold;
+                letter-spacing: 1px;
+                margin-right:2px;
+            }
+            .amount-type {
+                font-size:10px;
+                font-weight:bold;
+                text-transform: uppercase;
+                margin-top:6px;
             }
         }
 
@@ -292,20 +292,27 @@ body {
             width: 100px;
         }
 
+
         .responsible {
             position:absolute;
             top:28px;
-            right:3px;
+            right:1px;
             font-weight:bold;
             font-size:9px;
             color:black;
             letter-spacing:-1px;
             font-family: $condensed-family;
             transition:none;
-            cursor:auto;
+            cursor:pointer;
             &:hover {
-                transform:scale(1)
+                transform:scale(1);
             }
+        }
+
+        .responsible-image {
+            float:left;
+            width:81px;
+            height:12px;
         }
 
     }

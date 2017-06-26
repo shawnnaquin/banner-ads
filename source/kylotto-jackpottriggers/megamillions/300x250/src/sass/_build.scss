@@ -272,7 +272,7 @@ body {
             background-color:$bright-blue;
             padding:4px 8px 8px 8px;
 
-            span {
+            .amount-number, .amount-type {
                 color:white;
                 display:block;
                 width:100%;
@@ -284,17 +284,20 @@ body {
                     display:block;
                     float:left;
                 }
-                &.amount-number {
-                    font-size:33px;
-                    font-weight:bold;
-                    letter-spacing: 1px;
-                }
-                &.amount-type {
-                    font-size:16px;
-                    font-weight:bold;
-                    text-transform: uppercase;
-                }
             }
+
+            .amount-number {
+                font-size:33px;
+                font-weight:bold;
+                letter-spacing: 1px;
+            }
+
+            .amount-type {
+                font-size:16px;
+                font-weight:bold;
+                text-transform: uppercase;
+            }
+
         }
 
         .drawings {
