@@ -47,6 +47,25 @@ _
 
 # SIZMEK TEMPLATE
 
+#### file size
+
+Sizmek requires all "HTML5 Standard Banner" to be under
+- 200KB
+
+Sizmek requires all "HTML5 dynamic or HTML5 Expandable" to be under
+- 2MB
+
+- Sizmek computes file size as the GZip size on disk
+- Sizmek's size is usually the same as "size on disk" of the zip file of a single ad in `./build/zip/*.zip`
+
+#### Sizmek Shard libraries
+
+- [Sizmek Shard Libraries Link](https://support.sizmek.com/hc/en-us/articles/206136366--reference-glossary-HTML5-Shared-Libraries)
+- WARNING: while Sizmek does not count it's own shared libraries against your Ad's file size, publishers do! Publishers often reject ads over 200KB
+- same for any external resource
+
+- TLDR; Try not to use external resources.
+
 #### copy markup
 
 - copy and paste an ad into ad directories
@@ -75,9 +94,9 @@ build = '../../../../build/somename-1stttype-300x600-build/',
 
 #### building the landing page
 
-also refactor `./source/somename/somename.html` (the landing page) 
+also refactor `./source/somename/somename.html` (the landing page)
 
-- specified in `projects.json` 
+- specified in `projects.json`
 - the assets for this landing page can be found in `./build/index-assets/`
 - `./source/somename/somename.html` will be copied and renamed to `./build/index.html`
 - serving an individual ad or build all ads will perform this tasks
@@ -92,7 +111,7 @@ example markup for landing page:
 (be sure to keep the `<!-- inject-->` line before the `</body>` tag)
 
 
-```html 
+```html
     <div class="list">
 
         <div class="group">
