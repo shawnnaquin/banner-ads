@@ -368,8 +368,13 @@ body {
         }
 
         .gambler-logo {
-            margin-top:3px;
-            width:60px;
+            margin-top: 9px;
+            width: 68px;
+            height: 45px;
+            transition:none;
+            &:hover {
+                transform:none;
+            }
         }
 
     }
