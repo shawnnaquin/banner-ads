@@ -1,7 +1,7 @@
 {
 
 	"KYLottoJackpotTriggers": {
-		"KYLottoJackpotTriggers-version": "1.0.4",
+		"KYLottoJackpotTriggers-version": "1.0.5",
 		"directory": "./source/kylotto-jackpottriggers/",
 		"index": "kylotto-jackpottriggers.html",
 		"files": [
