@@ -11,7 +11,7 @@ function initAnimation() {
 
 function getAjax() {
 	microAjax({
-		url: "//accelerator.buntingroup.com/kylotto",
+		url: "https://accelerator.buntingroup.com/kylotto",
 		method: "GET",
 		success: function(data) {
 			KYObj = JSON.parse(data);
