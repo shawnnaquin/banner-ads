@@ -7,11 +7,13 @@
 		"files": [
 			"./source/kylotto-jackpottriggers/powerball/160x600/",
 			"./source/kylotto-jackpottriggers/powerball/300x250/",
+			"./source/kylotto-jackpottriggers/powerball/300x250-retailer-cta/",
 			"./source/kylotto-jackpottriggers/powerball/300x600/",
 			"./source/kylotto-jackpottriggers/powerball/320x50/",
 			"./source/kylotto-jackpottriggers/powerball/728x90/",
 			"./source/kylotto-jackpottriggers/megamillions/160x600/",
 			"./source/kylotto-jackpottriggers/megamillions/300x250/",
+			"./source/kylotto-jackpottriggers/megamillions/300x250-retailer-cta/",
 			"./source/kylotto-jackpottriggers/megamillions/300x600/",
 			"./source/kylotto-jackpottriggers/megamillions/320x50/",
 			"./source/kylotto-jackpottriggers/megamillions/728x90/"

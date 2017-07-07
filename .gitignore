@@ -6,7 +6,7 @@ node_modules/
 npm-debug.log
 *.zip
 build/*
-!build/index-assets/*
+!build/index-assets
 art/
 .idea
 *~

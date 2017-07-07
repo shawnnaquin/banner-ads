@@ -1,0 +1,107 @@
+.group {
+    position: relative;
+    float: left;
+    margin-right: 24px;
+    padding-right: 24px;
+    border-top:1px solid #421d1e;
+    border-right: 1px solid #421d1e;
+    margin-top: 12px;
+}
+
+.group li {
+    vertical-align: text-top;
+    line-height:1.5;
+}
+
+.group ul > li:nth-child(odd) {
+    margin-top:24px;
+}
+
+.group:nth-child(3) {
+    clear:both;
+}
+
+.logo-container {
+    position:relative;
+    float:left;
+    clear:both;
+    width:233px;
+    height: 75px;
+    padding-top:24px;
+    padding-right:32px;
+    padding-bottom:24px;
+    padding-left: 32px;
+    background:white;
+    border:1px solid #54924e;
+}
+.bt-logo, .client-logo {
+    float:left;
+    width:auto;
+    height:100%;
+}
+
+.bt-logo {
+    width: 70px;
+    margin-right: 1em;
+}
+
+.client-logo {
+    float:left;
+    height: 67.5px;
+    width: 130px;
+}
+
+.client-logo img {
+    margin-top:2px;
+    width:100%;
+    height:100%;
+}
+
+.zip, .zip > a {
+    display:block;
+    float:left;
+    clear:both;
+}
+.zip > a {
+    margin-top:32px;
+}
+
+h1, h3 {
+    float:left;
+    display:block;
+    clear:both;
+}
+
+h1 {
+    margin-bottom:0;
+}
+
+ul {
+    float:left;
+    margin-top:0;
+    clear:both;
+}
+
+ul a {
+    clear: left;
+    display: inline-block;
+    width: 100%;
+
+}
+ul a:nth-child(2) {
+    margin-top:4px;
+}
+li {
+    margin-top: 8px;
+    margin-bottom: 4px;
+    float: left;
+    clear: left;
+    display: list-item
+}
+.list {
+    float:left;
+    position:relative;
+    clear:both;
+    width:100%;
+    margin-top:24px;
+}
