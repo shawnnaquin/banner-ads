@@ -1,0 +1,58 @@
+body {
+    margin: 0px;
+}
+#ad {
+    position: relative;
+    display: block;
+    border: rgb(145, 153, 153) 1px solid;
+    overflow: hidden;
+    width: 298px;
+    height: 248px;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    background-image: url('../images/frame2.png');
+}
+
+/* Custom */
+
+//.button {
+//    position: absolute;
+//    bottom: 5px;
+//    right: 6px;
+//    z-index: 1;
+//    opacity: 0;
+//    transition: opacity 0.3s ease-in;
+//
+//    #ad:hover & {
+//        opacity: 1;
+//    }
+//}
+
+#water-holder {
+    position: relative;
+    opacity: 1;
+    transition: opacity 1s ease-in;
+}
+
+#shade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    transition: opacity 5s ease-out;
+    background-image: url(../images/frame0.png);
+}
+
+#shade.slow-fade {
+}
+
+#water-holder.hide,
+#shade.hide {
+    opacity: 0;
+}
