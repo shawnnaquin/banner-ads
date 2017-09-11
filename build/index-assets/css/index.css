@@ -6,6 +6,7 @@
     border-top:1px solid #421d1e;
     border-right: 1px solid #421d1e;
     margin-top: 12px;
+    min-width:224px;
 }
 
 .group li {
@@ -17,7 +18,7 @@
     margin-top:24px;
 }
 
-.group:nth-child(3) {
+.group:nth-child(odd) {
     clear:both;
 }
 
