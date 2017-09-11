@@ -48,7 +48,7 @@ img {
 
 #final {
     opacity: 0;
-    transition: opacity 0.3s ease-in;
+    transition: opacity 1s ease-in;
     z-index:2;
 
     &.fade-in {
