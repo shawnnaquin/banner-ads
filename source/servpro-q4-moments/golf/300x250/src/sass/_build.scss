@@ -176,8 +176,10 @@ body {
     }
     50% {
         transform:translateZ(-20000px);
+        opacity:1;
     }
     100% {
+        opacity:0.5;
         transform:translateZ(-40000px);
     }
 }
@@ -202,7 +204,7 @@ body {
 
 @keyframes ballRotate {
     100% {
-        transform:rotateZ(-8000deg);
+        transform:rotateZ(-2000deg);
     }
 }
 
