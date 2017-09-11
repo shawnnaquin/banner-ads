@@ -25,7 +25,7 @@
     position:relative;
     float:left;
     clear:both;
-    width:233px;
+    width:285px;
     height: 75px;
     padding-top:24px;
     padding-right:32px;
@@ -47,8 +47,8 @@
 
 .client-logo {
     float:left;
-    height: 67.5px;
-    width: 130px;
+    height: 64px;
+    width: 199px;
 }
 
 .client-logo img {
