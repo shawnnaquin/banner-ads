@@ -3,6 +3,7 @@
 		"ServproQ4Moments-version": "1.0.0",
 		"directory": "./source/servpro-q4-moments/",
 		"index": "servpro-q4-moments.html",
+		"remotePath": "/tbg.l2.design/servpro-q4-moments/",
 		"files": [
 			"./source/servpro-q4-moments/fantasy-golf/300x250/",
 			"./source/servpro-q4-moments/golf/300x250/",
@@ -16,6 +17,7 @@
 		"KYLottoJackpotTriggers-version": "1.0.5",
 		"directory": "./source/kylotto-jackpottriggers/",
 		"index": "kylotto-jackpottriggers.html",
+		"remotePath": "/tbg.l2.design/kylotto-jackpottriggers/",
 		"files": [
 			"./source/kylotto-jackpottriggers/powerball/160x600/",
 			"./source/kylotto-jackpottriggers/powerball/300x250/",
@@ -36,6 +38,7 @@
 		"kylottospeedometer-version": "1.0.10",
 		"directory": "./source/kylotto-speedometer/",
 		"index": "kylotto-speedometer.html",
+		"remotePath": "/tbg.l2.design/kylotto-speedometer/",
 		"files": [
 			"./source/kylotto-speedometer/300x600/",
 			"./source/kylotto-speedometer/300x250/",
@@ -47,6 +50,7 @@
 		"servproWater-version": "1.0.0",
 		"directory": "./source/servpro-water",
 		"index": "servprowater.html",
+		"remotePath": "/tbg.l2.design/servpro-water/",
 		"files": [
 			"./source/servpro-water/servpro-water/300x600/",
 			"./source/servpro-water/servpro-water/300x250/",

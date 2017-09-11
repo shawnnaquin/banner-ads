@@ -47,7 +47,7 @@ var connOptions = {
 
 gulp.task('cleanremote', function(cb) {
 	var conn = ftp.create(connOptions);
-	return conn.rmdir(secret.remotePath+'zip', function(err){
+	return conn.rmdir(project.remotePath+'zip', function(err){
 		cb();
 	});
 });
@@ -56,14 +56,14 @@ gulp.task( 'ftp', ['cleanremote'], function () {
 	var conn = ftp.create(connOptions);
 
 	return gulp.src( './build/**/*', { base: './build/', buffer: false } )
-		.pipe( conn.newer( secret.remotePath ) ) // only upload newer files
-		.pipe( conn.dest( secret.remotePath ) );
+		.pipe( conn.newer( project.remotePath ) ) // only upload newer files
+		.pipe( conn.dest( project.remotePath ) );
 });
 
 gulp.task( 'ftpIndex', function () {
 	var conn = ftp.create(connOptions);
 	return gulp.src( ['./build/index.html', './build/index-assets/**/*'], { base: './build/', buffer: false } )
-		.pipe( conn.dest( secret.remotePath ) );
+		.pipe( conn.dest( project.remotePath ) );
 });
 
 /* rename
