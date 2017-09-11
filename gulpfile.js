@@ -1,4 +1,4 @@
-var	projectName = 'KYLottoJackpotTriggers';
+var	projectName = 'ServproQ4Moments';
 
 var gulp = require( 'gulp' ),
 	chug = require( 'gulp-chug' ),

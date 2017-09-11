@@ -16,7 +16,7 @@ function initAnimation() {
 function reset() {
 	document.querySelector('.js-banner').classList.add('first-frame');
 	document.querySelector('.js-back').classList.remove('grow');
-	document.querySelector('.js-ball').classList.remove('fly');
+	document.querySelector('.js-ball').classList.remove('animate');
 	timeouts = [];
 	runAd();
 }
@@ -24,7 +24,7 @@ function reset() {
 function runAd() {
 
 	document.querySelector('.js-back').classList.add('grow');
-	document.querySelector('.js-ball').classList.add('fly');
+	document.querySelector('.js-ball').classList.add('animate');
 
 	timeouts.push( setTimeout( function() {
 		hideShow(0,1);

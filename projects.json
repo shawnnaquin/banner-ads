@@ -1,4 +1,15 @@
 {
+	"ServproQ4Moments": {
+		"ServproQ4Moments-version": "1.0.0",
+		"directory": "./source/servpro-q4-moments/",
+		"index": "servpro-q4-moments.html",
+		"files": [
+			"./source/servpro-q4-moments/fantasy-golf/300x250/",
+			"./source/servpro-q4-moments/fire-damage/300x250/",
+			"./source/servpro-q4-moments/house-fire/300x250/",
+			"./source/servpro-q4-moments/water-damage/300x250/"
+		]
+	},
 
 	"KYLottoJackpotTriggers": {
 		"KYLottoJackpotTriggers-version": "1.0.5",
