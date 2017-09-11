@@ -176,12 +176,10 @@ body {
     }
     50% {
         transform:translateZ(-20000px);
-    }
-    85% {
         opacity:1;
     }
     100% {
-        opacity:0.75;
+        opacity:0.5;
         transform:translateZ(-40000px);
     }
 }
