@@ -6,7 +6,8 @@
     border-top:1px solid #421d1e;
     border-right: 1px solid #421d1e;
     margin-top: 12px;
-    min-width:224px;
+    width:225px;
+    min-height:300px;
 }
 
 .group li {
@@ -18,9 +19,9 @@
     margin-top:24px;
 }*/
 
-.group:nth-child(odd) {
+/*.group:nth-child(4n+4) {
     clear:both;
-}
+}*/
 
 .logo-container {
     position:relative;
