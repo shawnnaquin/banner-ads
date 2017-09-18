@@ -160,7 +160,7 @@ body {
     transition:transform 5s #{$easeincubic} 2s; // check longest timeout in js
     transition-property: filter, -webkit-filter, transform;
     &.grow {
-        transform:translateZ(400px);
+        transform:translateZ(300px);
         filter:blur(0px);
         -webkit-filter:blur(0px);
     }

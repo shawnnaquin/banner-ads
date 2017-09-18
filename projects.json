@@ -5,16 +5,38 @@
 		"index": "servpro-q4-moments.html",
 		"remotePath": "/tbg.l2.design/servpro-q4-moments/",
 		"files": [
+			"./source/servpro-q4-moments/golf/160x600/",
+			"./source/servpro-q4-moments/golf/300x250/",
+			"./source/servpro-q4-moments/golf/300x600/",
+			"./source/servpro-q4-moments/golf/640x100/",
+			"./source/servpro-q4-moments/golf/728x90/",
+			"./source/servpro-q4-moments/golf/970x66/",
+			"./source/servpro-q4-moments/golf/970x90/",
+
 			"./source/servpro-q4-moments/fantasy-golf/160x600/",
 			"./source/servpro-q4-moments/fantasy-golf/300x250/",
 			"./source/servpro-q4-moments/fantasy-golf/300x600/",
 			"./source/servpro-q4-moments/fantasy-golf/728x90/",
 			"./source/servpro-q4-moments/fantasy-golf/970x90/",
 
-			"./source/servpro-q4-moments/golf/300x250/",
+			"./source/servpro-q4-moments/fire-damage/160x600/",
 			"./source/servpro-q4-moments/fire-damage/300x250/",
+			"./source/servpro-q4-moments/fire-damage/300x600/",
+			"./source/servpro-q4-moments/fire-damage/728x90/",
+			"./source/servpro-q4-moments/fire-damage/970x90/",
+			"./source/servpro-q4-moments/fire-damage/970x250/",
+
+			"./source/servpro-q4-moments/house-fire/160x600/",
 			"./source/servpro-q4-moments/house-fire/300x250/",
-			"./source/servpro-q4-moments/water-damage/300x250/"
+			"./source/servpro-q4-moments/house-fire/300x600",
+			"./source/servpro-q4-moments/house-fire/728x90/",
+			"./source/servpro-q4-moments/house-fire/970x90/",
+			"./source/servpro-q4-moments/house-fire/970x250/",
+
+			"./source/servpro-q4-moments/water-damage/300x250/",
+			"./source/servpro-q4-moments/water-damage/300x600/",
+			"./source/servpro-q4-moments/water-damage/728x90/",
+			"./source/servpro-q4-moments/water-damage/970x250/"
 		]
 	},
 

@@ -1,7 +1,7 @@
 /* variables
 ----------------------------------------------------------------------------------------------------------------------*/
-$width:300px;
-$height:250px;
+$width:970px;
+$height:66px;
 $easeoutback: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 $easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1);
 $easeinoutexpo: cubic-bezier(1,0,0,1);
@@ -61,11 +61,10 @@ body {
 
 .button {
     position:absolute;
-    top:175px;
-    left:50%;
+    top: 16px;
+    right: 75px;
     width:137px;
     height:31px;
-    transform:translateX(-50%);
     outline:none;
     background-color:transparent;
     margin:0;
@@ -128,7 +127,7 @@ body {
     &-four {
         z-index:4;
         background-image:url('../images/layer4.png');
-        background-position:center 36px;
+        background-position:left top;
         // background-color:green;
     }
 
@@ -143,26 +142,22 @@ body {
 }
 
 .back {
+    overflow: auto;
     position:absolute;
-    top:0;
+    bottom:0;
     left:0;
-    width:100%;
-    height:100%;
+    width:1200px;
+    height:517px;
     z-index:1;
     background-image:url('../images/golf-course.jpg');
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
     transform-origin: center;
-    transform:translateZ(0);
-    filter:blur(2px);
-    -webkit-filter:blur(2px);
+    transform:translateZ(-90px) translateX(-115px) translateY(10px);
     transition:transform 5s #{$easeincubic} 2s; // check longest timeout in js
-    transition-property: filter, -webkit-filter, transform;
     &.grow {
-        transform:translateZ(400px);
-        filter:blur(0px);
-        -webkit-filter:blur(0px);
+        transform:translateZ(0) translateX(0px) translateY(350px);
     }
 
 }
@@ -174,19 +169,22 @@ body {
     5% {
         opacity:1;
     }
-    50% {
-        transform:translateZ(-20000px);
+    90% {
         opacity:1;
+        transform:translateZ(-15000px);
     }
     100% {
         opacity:0.5;
-        transform:translateZ(-40000px);
+        transform:translateZ(-35000px);
     }
 }
 
 @keyframes ballY {
+    50% {
+        transform:translateY(-15px);
+    }
     100% {
-        transform:translateY(50px);
+        transform:translateY(75px);
     }
 }
 
@@ -194,11 +192,8 @@ body {
     0% {
         transform:translateX(300px);
     }
-    2% {
-        transform:translateX(100px);
-    }
     100% {
-        transform:translateX(-60px);
+        transform:translateX(40px);
     }
 }
 
@@ -208,14 +203,40 @@ body {
     }
 }
 
+@keyframes unblurIt {
+    100% {
+        filter:blur(0);
+    }
+}
+
+.blur {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:1;
+    filter:blur(2px);
+    perspective:800px;
+    perspective-origin: center;
+    &.unblur {
+        animation-name: unblurIt;
+        animation-duration: 8s;
+        animation-delay:1s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-timing-function: linear;
+    }
+}
+
 .ball {
 
     pointer-events:none;
     position:absolute;
     width:300px;
     height:300px;
-    right:0;
-    bottom:0;
+    right:25%;
+    bottom:-40px;
     z-index:2;
 
     .ball-x,

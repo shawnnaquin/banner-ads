@@ -14,9 +14,9 @@
     line-height:1.5;
 }
 
-.group ul > li:nth-child(odd) {
+/*.group ul > li:nth-child(odd) {
     margin-top:24px;
-}
+}*/
 
 .group:nth-child(odd) {
     clear:both;
