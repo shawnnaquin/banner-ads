@@ -11,7 +11,7 @@ var gulp = require('gulp'),
     htmlmin = require('gulp-htmlmin'),
     jslint = require('gulp-jslint'),
 
-    build = '../../../../build/servpro-waterdamage-300x600-build/',
+    build = '../../../../build/servpro-firedamage-970x250-build/',
     src = './src/';
 
     paths = {
