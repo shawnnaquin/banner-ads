@@ -7,11 +7,11 @@ function init(){
 }
 
 function cycle() {
-    console.log('starting cycle');
+    // console.log('starting cycle');
 
     setTimeout(function() {
         van.classList.add('drive1');
-    }, 2000);
+    }, 2000 );
 
     setTimeout(function() {
         fixed.classList.add('fade-in');
@@ -22,13 +22,13 @@ function cycle() {
         van.classList.remove('drive1');
         van.classList.remove('drive2');
         final.classList.add('fade-in');
-    }, 10000);
+    }, 8000 );
 
     setTimeout(function() {
         fixed.classList.remove('fade-in');
         final.classList.remove('fade-in');
         cycle();
-    }, 15000);
+    }, 11000 );
 }
 
 window.onload = init;
