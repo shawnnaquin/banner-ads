@@ -24,13 +24,13 @@ img {
 
 #van {
     left: 100%;
-    bottom: -75px;
+    bottom: -25px;
     height: 250px;
     transition: transform 3s ease-in-out;
     z-index: 1;
 
     &.drive1 {
-        transform: translateX(-100%);
+        transform: translateX(-75%);
     }
     &.drive2 {
         transform: translateX(-200%);
