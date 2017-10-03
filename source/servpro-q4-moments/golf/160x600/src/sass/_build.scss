@@ -156,7 +156,7 @@ body {
     background-repeat:no-repeat;
     transform-origin: center;
     -webkit-backface-visibility: hidden;
-    transform:translateZ(-1500px) translateX(-196px) translateY(-700px);
+    transform:translateZ(-800px) translateX(-196px) translateY(-700px);
     transition:transform 5s #{$easeincubic} 2s; // check longest timeout in js
     &.grow {
         transform: translateZ(0) translateX(-200px) translateY(-700px);
