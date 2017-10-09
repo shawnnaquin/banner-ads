@@ -60,9 +60,9 @@ function cycle() {
         waterHolder.classList.add('hide');
     }, 7000);
 
-    setTimeout(function() {
-        cycle();
-    }, 15000);
+    // setTimeout(function() {
+    //     cycle();
+    // }, 15000);
 
 }
 

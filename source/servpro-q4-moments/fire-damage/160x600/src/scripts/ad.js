@@ -18,7 +18,7 @@ function cycle(){
 
     setTimeout(playVideo, 3000);
 
-    setTimeout(cycle, 12000);
+    // setTimeout(cycle, 12000);
 }
 
 window.onload = init;
