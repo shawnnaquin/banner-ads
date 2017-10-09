@@ -1,3 +1,6 @@
+var cycleCount = 0;
+var maxCycles = 3;
+
 var fixed = document.getElementById('fixed');
 var van = document.getElementById('van');
 var final = document.getElementById('final');
@@ -8,6 +11,7 @@ function init(){
 
 function cycle() {
     // console.log('starting cycle');
+    cycleCount++;
 
     setTimeout(function() {
         van.classList.add('drive1');
@@ -24,11 +28,13 @@ function cycle() {
         final.classList.add('fade-in');
     }, 8000 );
 
-    // setTimeout(function() {
-    //     fixed.classList.remove('fade-in');
-    //     final.classList.remove('fade-in');
-    //     cycle();
-    // }, 11000);
+    setTimeout(function() {
+        if ( cycleCount < maxCycles ) {
+            fixed.classList.remove('fade-in');
+            final.classList.remove('fade-in');
+            cycle();
+        }
+    }, 11000);
 
 }
 

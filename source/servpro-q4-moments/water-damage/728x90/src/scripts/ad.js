@@ -1,3 +1,6 @@
+var cycleCount = 0;
+var maxCycles = 3;
+
 var waterHolder = document.getElementById('water-holder');
 var shade = document.getElementById('shade');
 
@@ -34,7 +37,11 @@ function init(){
 }
 
 function cycle() {
+
+    cycleCount++;
+
     waterHolder.classList.remove('hide');
+
     var mover = 0;
     var moverInc = (width * 0.9)/266.667;
 
@@ -60,9 +67,11 @@ function cycle() {
         waterHolder.classList.add('hide');
     }, 7000);
 
-    // setTimeout(function() {
-    //     cycle();
-    // }, 15000);
+    setTimeout(function() {
+        if ( cycleCount < maxCycles ) {
+            cycle();
+        }
+    }, 15000);
 
 }
 
