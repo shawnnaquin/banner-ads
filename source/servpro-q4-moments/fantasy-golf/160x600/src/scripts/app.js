@@ -1,3 +1,6 @@
+var cycleCount = 0;
+var maxCycles = 3;
+
 var layerArray = ['layer-one','layer-two','layer-three','layer-four'];
 var secondFrameStart = 2300;
 var timeOnFrame = 2500;
@@ -14,6 +17,9 @@ function initAnimation() {
 }
 
 function reset() {
+
+	document.querySelector('.js-back').style.transition = 'none';
+
 	document.querySelector('.js-banner').classList.add('first-frame');
 	document.querySelector('.js-back').classList.remove('grow');
 	document.querySelector('.js-ball').classList.remove('animate');
@@ -23,6 +29,8 @@ function reset() {
 }
 
 function runAd() {
+
+	document.querySelector('.js-back').style.transition = '';
 
 	document.querySelector('.js-back').classList.add('grow');
 	document.querySelector('.js-ball').classList.add('animate');
@@ -40,10 +48,12 @@ function runAd() {
 		hideShow(2,3);
 	}, secondFrameStart+(timeOnFrame*2.16666) ) );
 
-	// timeouts.push( setTimeout( function() {
-	// 	hideShow(3,0);
-	// 	reset();
-	// }, secondFrameStart+(timeOnFrame*3.16666) ) );
+	timeouts.push( setTimeout( function() {
+		if ( cycleCount < maxCycles ) {
+			hideShow(3,0);
+			reset();
+		}
+	}, secondFrameStart+(timeOnFrame*3.16666) ) );
 
 }
 

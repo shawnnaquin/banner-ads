@@ -1,3 +1,6 @@
+var cycleCount = 0;
+var maxCycles = 3;
+
 var video = document.getElementById('video');
 var image = document.getElementById('frame-one');
 
@@ -14,11 +17,18 @@ function goToFirstFrame() {
 }
 
 function cycle(){
+
+	cycleCount++;
+
     goToFirstFrame();
 
     setTimeout(playVideo, 3000);
 
-    // setTimeout(cycle, 12000);
+    setTimeout(function() {
+    	if ( cycle < maxCycles ) {
+    		cycle();
+    	}
+    }, 12000);
 }
 
 window.onload = init;
