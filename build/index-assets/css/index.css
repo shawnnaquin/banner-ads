@@ -7,7 +7,7 @@
     border-right: 1px solid #421d1e;
     margin-top: 12px;
     width:225px;
-    min-height:300px;
+    min-height:800px;
 }
 
 .group li {
@@ -15,9 +15,9 @@
     line-height:1.5;
 }
 
-/*.group ul > li:nth-child(odd) {
+.group ul > li:nth-child(odd) {
     margin-top:24px;
-}*/
+}
 
 /*.group:nth-child(4n+4) {
     clear:both;
