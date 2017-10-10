@@ -15,7 +15,11 @@
     line-height:1.5;
 }
 
-.group ul > li:nth-child(odd) {
+.group:not(.no-ads) ul > li:nth-child(odd) {
+    margin-top:24px;
+}
+
+.group.no-ads ul > li {
     margin-top:24px;
 }
 
