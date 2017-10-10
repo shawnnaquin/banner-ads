@@ -23,7 +23,7 @@ function reset() {
 	document.querySelector('.js-banner').classList.add('first-frame');
 	document.querySelector('.js-back').classList.remove('grow');
 	document.querySelector('.js-ball').classList.remove('animate');
-	document.querySelector('.js-blur').classList.remove('unblur');
+	// document.querySelector('.js-blur').classList.remove('unblur');
 	cycleCount++;
 	timeouts = [];
 	setTimeout( function() {
@@ -35,7 +35,7 @@ function runAd() {
 
 	document.querySelector('.js-back').classList.add('grow');
 	document.querySelector('.js-ball').classList.add('animate');
-	document.querySelector('.js-blur').classList.add('unblur');
+	// document.querySelector('.js-blur').classList.add('unblur');
 
 	timeouts.push( setTimeout( function() {
 		hideShow(0,1);

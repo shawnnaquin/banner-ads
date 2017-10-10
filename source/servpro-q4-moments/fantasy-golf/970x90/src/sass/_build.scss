@@ -203,11 +203,11 @@ body {
     }
 }
 
-@keyframes unblurIt {
-    100% {
-        filter:blur(0);
-    }
-}
+// @keyframes unblurIt {
+//     100% {
+//         filter:blur(0);
+//     }
+// }
 
 .blur {
     position:absolute;
@@ -216,17 +216,17 @@ body {
     width:100%;
     height:100%;
     z-index:1;
-    filter:blur(2px);
+    // filter:blur(2px);
     perspective:800px;
     perspective-origin: center;
-    &.unblur {
-        animation-name: unblurIt;
-        animation-duration: 8s;
-        animation-delay:1s;
-        animation-iteration-count: 1;
-        animation-fill-mode: forwards;
-        animation-timing-function: linear;
-    }
+    // &.unblur {
+    //     animation-name: unblurIt;
+    //     animation-duration: 8s;
+    //     animation-delay:1s;
+    //     animation-iteration-count: 1;
+    //     animation-fill-mode: forwards;
+    //     animation-timing-function: linear;
+    // }
 }
 
 .ball {

@@ -25,7 +25,7 @@ function cycle(){
     setTimeout(playVideo, 3000);
 
     setTimeout(function() {
-    	if ( cycle < maxCycles ) {
+    	if ( cycleCount < maxCycles ) {
     		cycle();
     	}
     }, 12000);
