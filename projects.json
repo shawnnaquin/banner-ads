@@ -63,6 +63,20 @@
 		]
 	},
 
+	"KYLottoBigJackpotTriggers": {
+		"KYLottoJackpotTriggers-version": "1.0.0",
+		"directory": "./source/kylotto-big-jackpottriggers/",
+		"index": "kylotto-big-jackpottriggers.html",
+		"remotePath": "/tbg.l2.design/kylotto-big-jackpottriggers/",
+		"files": [
+			"./source/kylotto-big-jackpottriggers/megamillions/160x600/",
+			"./source/kylotto-big-jackpottriggers/megamillions/300x250/",
+			"./source/kylotto-big-jackpottriggers/megamillions/300x600/",
+			"./source/kylotto-big-jackpottriggers/megamillions/320x50/",
+			"./source/kylotto-big-jackpottriggers/megamillions/728x90/"
+		]
+	},
+
 	"kylottospeedometer": {
 		"kylottospeedometer-version": "1.0.10",
 		"directory": "./source/kylotto-speedometer/",
