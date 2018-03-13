@@ -1,6 +1,6 @@
-var showClass = 'show';
-var layerArray = ['layer-one','layer-two','layer-three'];
-var frameStarts = [2300, 5800];
+var showClass = 'switched';
+var effectClass = 'js-switch';
+var frameStarts = [5500];
 var timeouts;
 var KYObj, PBNum, MMNum;
 
@@ -17,7 +17,7 @@ function getAjax() {
 			KYObj = JSON.parse(data);
 			// PBNum = KYObj.channel.item[0].description;
 			MMNum = KYObj.channel.item[1].description;
-			document.querySelector('.js-amount-number').innerHTML = MMNum;
+			document.querySelector('.js-number').innerHTML = MMNum;
 		},
 		warning: function(error) {
 			console.log('warnining!', error);
@@ -28,45 +28,31 @@ function getAjax() {
 	});
 }
 
+function doIt(add) {
+
+	Array.prototype.forEach.call( document.querySelectorAll('.'+effectClass), function($div) {
+
+		if ( add ) {
+			$div.classList.add(showClass);
+		} else {
+			$div.classList.remove(showClass);
+		}
+
+	});
+
+}
+
 function reset() {
+	doIt(false);
 	timeouts = [];
 	runAd();
 }
 
 function runAd() {
 
-	hideShow(2,0);
+	var fn = function() {
+		doIt(true);
+	};
 
-	timeouts.push( setTimeout( function() {
-		hideShow(0,1);
-	}, frameStarts[0] ));
-
-	timeouts.push( setTimeout( function() {
-		hideShow(1,2);
-	}, frameStarts[1] ));
-
-}
-
-function hideShow(cur,next) {
-
-	var layerOne = ['.js-geta', '.js-bang', '.js-foryour'];
-	var layerTwo = ['.js-layer2-star','.js-the', '.js-megamillions','.js-jackpotishere'];
-	var layerThree = ['.js-layer3-star', '.js-info'];
-	var layerArrays = [layerOne, layerTwo, layerThree];
-
-	// animate layer
-	document.querySelector('.js-'+layerArray[cur]).classList.remove(showClass);
-	document.querySelector('.js-'+layerArray[next]).classList.add(showClass);
-
-	// animnate layer items
-	layerArrays.forEach(function(el,i){
-		el.forEach(function(il) {
-			if ( i !== next ) {
-				document.querySelector(il).classList.remove(showClass);
-			} else {
-				document.querySelector(il).classList.add(showClass);
-			}
-		});
-	});
-
+	timeouts.push( setTimeout( fn, frameStarts[0] ) );
 }
