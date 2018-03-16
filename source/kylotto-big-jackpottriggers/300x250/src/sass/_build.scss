@@ -100,7 +100,6 @@ body {
     height:$height;
     width:100%;
     transition:opacity 500ms ease;
-    pointer-events:none;
 
     perspective:100px;
     perspective-origin: center;
@@ -122,6 +121,18 @@ body {
     align-items: center;
     justify-content: space-between;
     z-index:1;
+    perspective: 1000px;
+    perspective-origin: center;
+    > .button {
+        transform-origin: center;
+        transform: scale(1);
+        transition: transform 200ms ease;
+        cursor: pointer;
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
     img {
         height:90%;
         &.gamblers {
