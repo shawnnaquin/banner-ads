@@ -4,29 +4,39 @@ $width:728px;
 $height:90px;
 
 $tan: Beige;
-$red: #ef3c35;
 $white: white;
+
+$pb-red: #e12726;
+$pb-blue: #0645a2;
+
+$mm-blue: #004fa3;
+$mm-red: #ef3e33;
+
+$red: $mm-red;
+$blue: $mm-blue;
+
+$button-bg: $blue;
 
 $logo-ratio: 0.3844049248;
 
-$font: 'Rubik Mono One', Verdana, Geneva, sans-serif;
-$altfont: Arial, "Helvetica Neue", Helvetica, sans-serif;
+$font: 'Teko', Verdana, Geneva, sans-serif;
+$altfont: 'Montserrat', Arial, "Helvetica Neue", Helvetica, sans-serif;
 
 $easeoutback: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 $easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1);
 $easeinoutexpo: cubic-bezier(1,0,0,1);
 
 @mixin layerWidth() {
-    padding:5px;
-    width: calc(100% - 10px);
-    height: calc(100% - 10px);
+    padding:2px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
 }
 
 @mixin fontStyle($size: 14px) {
     font-family: $font;
     font-style: bold;
     font-weight: 400;
-    color: $red;
+    color: $blue;
     font-size: #{$size};
     text-transform: uppercase;
 }
@@ -41,14 +51,16 @@ $easeinoutexpo: cubic-bezier(1,0,0,1);
 }
 
 @mixin bigFont() {
-    font-size:100px;
-    line-height:0.9;
-    letter-spacing:-10px;
-    transform:translateX(-5px)
+    font-size: 118px;
+    line-height: 0.9;
 }
 
 /* large blocks
 ----------------------------------------------------------------------------------------------------------------------*/
+.svg-blue {
+    fill: $blue;
+}
+
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -78,8 +90,8 @@ body {
     -ms-user-select: none;
     user-select: none;
     cursor:pointer;
-    // background-image:url('../images/bg.png');
     background-color: $tan;
+    background-image:url('../images/background.png');
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
@@ -189,26 +201,38 @@ body {
 }
 
 .drawings {
-    font-size: 10px;
+    font-size: 12px;
+    font-family: $altfont;
+    text-transform: none;
+    font-weight:900;
+    font-style:bold;
 }
 
 .header {
     @include bigFont();
+    > img {
+        width: 80%;
+    }
 }
 
 .logo {
-    width: 100px;
-    height: 100px * #{$logo-ratio};
+    width: 120px;
+    height: calc( 120px * #{$logo-ratio} );
     transform:translateX(-8px);
 }
 
 .button {
     padding: 4px 16px;
-    background:$red;
+    background:$button-bg;
     border: 1px solid $white;
     border-radius: 4px;
     color: $white;
     @include buttonStyle();
+    &.small {
+        padding: 6px 4px;
+        font-size:10px;
+        font-style: normal;
+    }
 }
 
 .content {
@@ -255,13 +279,36 @@ body {
 }
 
 .number {
+    position: relative;
+    display: block;
     @include bigFont();
     &:before {
-        position:relative;
-        content: '$';
-        font-size:32px;
-        bottom: 45px;
+        content: '';
+        width: 40px;
+        height: 40px;
+        background-image: url('../images/dollar.svg');
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        display: inline-block;
+        position: relative;
+        bottom: 40px;
     }
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 127px;
+        height: 34px;
+        right: 0;
+        bottom: 50px;
+        background-image: url('../images/million.svg');
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+    }
+}
+.number-total {
+    text-align: left;
+    padding-left: 80px;
 }
 
 .dollar {
@@ -290,11 +337,16 @@ body {
         transition: opacity 1s ease;
 
         &.elephant {
-            justify-content: flex-end;
+            width: calc( 100% - 130px );
+            padding-left: 130px;
+            justify-content: space-between;
         }
 
         &.giraffe {
-            opacity:0;
+            width: calc(100% - 70px);
+            padding-left: 20px;
+            padding-right: 50px;
+            opacity: 0;
         }
 
     }
@@ -309,7 +361,7 @@ body {
     }
 
     img {
-        height:75px;
+        // height:75px;
     }
 
 }
