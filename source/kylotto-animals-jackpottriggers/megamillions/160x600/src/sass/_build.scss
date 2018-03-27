@@ -1,0 +1,342 @@
+/* variables
+----------------------------------------------------------------------------------------------------------------------*/
+$width:160px;
+$height:600px;
+
+$tan: Beige;
+$white: white;
+
+$pb-red: #e12726;
+$pb-blue: #0645a2;
+
+$mm-blue: #004fa3;
+$mm-red: #ef3e33;
+
+$red: $mm-red;
+$blue: $mm-blue;
+
+$button-bg: $blue;
+
+$pb-ratio: 0.3132587859;
+$mm-ratio: 0.4743589744;
+
+$logo-ratio: $mm-ratio;
+
+$font: 'Teko', Verdana, Geneva, sans-serif;
+$altfont: 'Montserrat', Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+$easeoutback: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+$easeinoutexpo: cubic-bezier(1,0,0,1);
+
+@mixin layerWidth() {
+    padding-left:2px;
+    padding-right:2px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+}
+
+@mixin fontStyle($size: 14px) {
+    font-family: $font;
+    font-style: bold;
+    font-weight: 400;
+    color: $blue;
+    font-size: #{$size};
+    text-transform: uppercase;
+}
+
+@mixin buttonStyle() {
+    font: $altfont;
+    font-size: 10px;
+    font-weight: 700;
+    font-style: bold;
+    text-transform: uppercase;
+}
+
+@mixin bigFont() {
+    font-size:100px;
+    line-height:1;
+}
+
+/* large blocks
+----------------------------------------------------------------------------------------------------------------------*/
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align:center;
+    margin: 0px;
+    @include fontStyle();
+}
+
+#border {
+    pointer-events:none;
+    position:absolute;
+    width:calc(#{$width} - 2px);
+    height:calc(#{$height} - 2px);
+    border:1px solid black;
+    z-index:1;
+}
+
+#ad {
+    position:relative;
+    display: block;
+    overflow: hidden;
+    width: $width;
+    height: $height;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor:pointer;
+    background-color: $tan;
+    background-image:url('../images/background.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    z-index:0;
+}
+
+#banner {
+    position: absolute;
+    display: block;
+    width: $width;
+    height: $height;
+    overflow: hidden;
+}
+
+.layer {
+
+    position:absolute;
+    left:0;
+    height:$height;
+    width:100%;
+    transition:opacity 500ms ease;
+
+    perspective:100px;
+    perspective-origin: center;
+
+}
+
+.top {
+    position:relative;
+    height:140px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.logo {
+    width: 150px;
+    height: calc(150px * #{$logo-ratio});
+    transform:translateX(-4px);
+}
+
+.hero {
+    position:relative;
+    padding-bottom:20px;
+}
+
+.content {
+
+    position:relative;
+
+    > div {
+        transition: opacity 1s ease;
+    }
+
+    .header {
+        opacity:1;
+        > img {
+            position: relative;
+            width: 91%;
+            left: 1px;
+        }
+    }
+
+    .total {
+        position:absolute;
+        top:-20px;
+        left:3px;
+        width:100%;
+        height:100%;
+        opacity:0;
+    }
+
+    .number-total {
+    }
+
+    .subtitle {
+        img {
+            width:83%;
+        }
+    }
+
+    &.switched {
+
+        .subtitle {
+            opacity:0;
+        }
+
+        .header {
+            opacity:0;
+        }
+
+        .total {
+            opacity:1;
+        }
+
+    }
+
+}
+
+.number {
+    position: relative;
+    display: block;
+    font-size: 90px;
+    height: 123px;
+    line-height: 146px;
+    &:before {
+        position:absolute;
+        display: inline-block;
+        content: '';
+        top: 32px;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        background-image: url('../images/dollar.svg');
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+    }
+}
+
+.denomination {
+    text-align: center;
+    font-family: $altfont;
+    font-size:24px;
+    text-transform: lowercase;
+    font-style:bold;
+    font-weight:900;
+    position:relative;
+    top: -24px;
+    > img {
+        display: inline-block;
+        width: 80%;
+    }
+}
+
+.dollar {
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    font-size:24px;
+}
+
+.animals {
+
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+    > div {
+
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width:100%;
+        justify-content: space-between;
+        transition: opacity 1s ease;
+
+        &.elephant {
+            justify-content: center;
+            img {
+                width:80%;
+            }
+        }
+
+        &.giraffe {
+            opacity:0;
+            bottom: -30px;
+            padding-left:20px;
+            padding-right:20px;
+            width:calc(100% - 40px);
+            height:60%;
+        }
+
+    }
+
+    &.switched {
+        > div.elephant {
+            opacity: 0;
+        }
+        > div.giraffe {
+            opacity: 1;
+        }
+    }
+
+    img {
+        height: 100%;
+        width: auto;
+    }
+
+}
+
+.middle {
+    padding:30px 0;
+    perspective:1000px;
+    perspective-origin:center;
+}
+
+.drawings {
+    font-family:$altfont;
+    font-weight:700;
+    font-style:bold;
+    font-size:14px;
+    color:$blue;
+    text-transform:none;
+    margin:10px auto;
+}
+.button {
+    padding: 10px 8px;
+    background:$blue;
+    border: 1px solid $white;
+    border-radius: 10px;
+    color: $white;
+    @include buttonStyle();
+    cursor: pointer;
+    transform-origin:center;
+    transform: scale(1);
+    transition: transform 300ms ease;
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.bottom {
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    z-index:1;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .ky-lotto-logo {
+        height: 64px;
+        width:auto;
+    }
+
+    .gamblers {
+        height:40px;
+        width:auto;
+    }
+}

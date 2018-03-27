@@ -69,11 +69,26 @@
 		"index": "kylotto-animals-jackpottriggers.html",
 		"remotePath": "/tbg.l2.design/kylotto-animals-jackpottriggers/",
 		"files": [
-			"./source/kylotto-animals-jackpottriggers/160x600/",
-			"./source/kylotto-animals-jackpottriggers/300x250/",
-			"./source/kylotto-animals-jackpottriggers/300x600/",
-			"./source/kylotto-animals-jackpottriggers/320x50/",
-			"./source/kylotto-animals-jackpottriggers/728x90/"
+
+			"./source/kylotto-animals-jackpottriggers/megamillions/160x600/",
+			"./source/kylotto-animals-jackpottriggers/powerball/160x600/",
+
+			"./source/kylotto-animals-jackpottriggers/megamillions/320x50/",
+			"./source/kylotto-animals-jackpottriggers/powerball/320x50/",
+
+			"./source/kylotto-animals-jackpottriggers/powerball/300x250/",
+			"./source/kylotto-animals-jackpottriggers/powerball/300x250-lets-play/",
+			"./source/kylotto-animals-jackpottriggers/megamillions/300x250/",
+			"./source/kylotto-animals-jackpottriggers/megamillions/300x250-lets-play/",
+
+			"./source/kylotto-animals-jackpottriggers/powerball/300x600/",
+			"./source/kylotto-animals-jackpottriggers/powerball/300x600-lets-play/",
+			"./source/kylotto-animals-jackpottriggers/megamillions/300x600/",
+			"./source/kylotto-animals-jackpottriggers/megamillions/300x600-lets-play/",
+
+			"./source/kylotto-animals-jackpottriggers/powerball/728x90/",
+			"./source/kylotto-animals-jackpottriggers/megamillions/728x90/"
+
 		]
 	},
 

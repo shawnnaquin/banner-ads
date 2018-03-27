@@ -1,0 +1,364 @@
+/* variables
+----------------------------------------------------------------------------------------------------------------------*/
+$width:300px;
+$height:250px;
+
+$tan: Beige;
+$white: white;
+
+$pb-red: #e12726;
+$pb-blue: #0645a2;
+
+$mm-blue: #004fa3;
+$mm-red: #ef3e33;
+
+$red: $mm-red;
+$blue: $mm-blue;
+
+$button-bg: $blue;
+
+$pb-ratio: 0.3132587859;
+$mm-ratio: 0.4743589744;
+
+$logo-ratio: $mm-ratio;
+
+$font: 'Teko', Verdana, Geneva, sans-serif;
+$altfont: 'Montserrat', Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+$easeoutback: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+$easeinoutexpo: cubic-bezier(1,0,0,1);
+
+@mixin layerWidth() {
+    padding-left:2px;
+    padding-right:2px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+}
+
+@mixin fontStyle($size: 14px) {
+    font-family: $font;
+    font-style: bold;
+    font-weight: 400;
+    color: $blue;
+    font-size: #{$size};
+    text-transform: uppercase;
+}
+
+@mixin buttonStyle() {
+    font: $altfont;
+    font-size: 13px;
+    font-weight: 600;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+@mixin bigFont() {
+    font-size:100px;
+    line-height:1;
+}
+
+/* large blocks
+----------------------------------------------------------------------------------------------------------------------*/
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align:center;
+    margin: 0px;
+    @include fontStyle();
+}
+
+#border {
+    pointer-events:none;
+    position:absolute;
+    width:calc(#{$width} - 2px);
+    height:calc(#{$height} - 2px);
+    border:1px solid black;
+    z-index:1;
+}
+
+#ad {
+    position:relative;
+    display: block;
+    overflow: hidden;
+    width: $width;
+    height: $height;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor:pointer;
+    background-color: $tan;
+    background-image:url('../images/background.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    z-index:0;
+}
+
+#banner {
+    position: absolute;
+    display: block;
+    width: $width;
+    height: $height;
+    overflow: hidden;
+}
+
+.layer {
+
+    position:absolute;
+    left:0;
+    height:$height;
+    width:100%;
+    transition:opacity 500ms ease;
+
+    perspective:100px;
+    perspective-origin: center;
+
+}
+
+.top {
+    position:relative;
+    @include layerWidth();
+    padding-top: 2px;
+    height: 193px;
+}
+
+.bottom {
+    position:relative;
+    @include layerWidth();
+    height: 55px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+    z-index:1;
+    perspective: 1000px;
+    perspective-origin: center;
+    > .button {
+        transform-origin: bottom;
+        transform: scale(1) translateY(-8px);
+        transition: transform 200ms ease;
+        cursor: pointer;
+        &:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+    }
+
+    .drawings {
+        display: block;
+        position: absolute;
+        top: -5px;
+        right: -2px;
+        font-weight: 900;
+        width: 132px;
+        font-size: 10px;
+        color: $blue;
+        text-transform: none;
+        text-shadow: 2px 2px 5px rgba(0,0,0,.3);
+    }
+
+    img {
+        height:90%;
+        &.gamblers {
+            height: 60%;
+        }
+    }
+    .ky-lotto-logo {
+        transform: translateY(5px);
+    }
+}
+
+.header {
+    @include bigFont();
+}
+
+.logo {
+    width: 40%;
+    height: calc(40% * #{$logo-ratio});
+}
+
+.button {
+    padding: 4px 16px;
+    background:$blue;
+    border: 1px solid $white;
+    border-radius: 4px;
+    color: $white;
+    @include buttonStyle();
+
+    &.small {
+        padding: 4px 8px;
+        font-size: 10px;
+        font-style: normal;
+    }
+}
+
+.content {
+
+    position:relative;
+    transform: translateY(-6px);
+
+    > div {
+        transition: opacity 1s ease;
+    }
+
+    .header {
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height: calc( 100% - 18px);
+        opacity:1;
+        padding-top: 18px;
+        > img {
+            position: relative;
+            width: 91%;
+            left: 1px;
+        }
+    }
+
+    .total {
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        opacity:0;
+    }
+
+    .number-total {
+        height: 109px;
+    }
+
+    .subtitle {
+        height: 130px;
+        img {
+            width:83%;
+        }
+    }
+
+    &.switched {
+
+        .subtitle {
+            opacity:0;
+        }
+
+        .header {
+            opacity:0;
+        }
+
+        .total {
+            opacity:1;
+        }
+
+    }
+
+}
+
+.number {
+    position: relative;
+    display: block;
+    font-size: 140px;
+    line-height: 0.85;
+    transform: translateX(7px);
+    &:before {
+        position:absolute;
+        display: inline-block;
+        content: '';
+        top: 0;
+        left: 8px;
+        width: 40px;
+        height: 40px;
+        background-image: url('../images/dollar.svg');
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+    }
+    // &:after {
+    //     content: '';
+    //     display: block;
+    //     position: absolute;
+    //     width: 127px;
+    //     height: 34px;
+    //     right: 0;
+    //     bottom: 50px;
+    //     background-image: url('../images/million.svg');
+    //     background-repeat: no-repeat;
+    //     background-size: auto 100%;
+    // }
+}
+
+.denomination {
+    text-align: center;
+    font-family: $altfont;
+    font-size:24px;
+    transform:translateY(-10px);
+    text-transform: lowercase;
+    font-style:bold;
+    font-weight:900;
+    > img {
+        display: inline-block;
+        width: 36%;
+    }
+}
+
+.dollar {
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    font-size:24px;
+}
+
+.animals {
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:100%;
+    transform: translateY(18px);
+
+    > div {
+
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: calc(100% - 30px);
+        padding-left:15px;
+        padding-right:15px;
+        justify-content: space-between;
+        transition: opacity 1s ease;
+
+        &.elephant {
+            justify-content: start;
+            padding-left: 21px;
+        }
+
+        &.giraffe {
+            opacity:0;
+            bottom: 10px;
+            img {
+                position:relative;
+            }
+            img:nth-child(2) {
+                bottom:15px
+            }
+        }
+
+    }
+
+    &.switched {
+        > div.elephant {
+            opacity: 0;
+        }
+        > div.giraffe {
+            opacity: 1;
+        }
+    }
+
+    img {
+        height: 100%;
+        width: auto;
+    }
+
+}
