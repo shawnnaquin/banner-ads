@@ -63,17 +63,17 @@
 		]
 	},
 
-	"KYLottoBigJackpotTriggers": {
-		"KYLottoBigJackpotTriggers-version": "1.0.0",
-		"directory": "./source/kylotto-big-jackpottriggers/",
-		"index": "kylotto-big-jackpottriggers.html",
-		"remotePath": "/tbg.l2.design/kylotto-big-jackpottriggers/",
+	"KYLottoAnimalsJackpotTriggers": {
+		"KYLottoAnimalsJackpotTriggers-version": "1.0.0",
+		"directory": "./source/kylotto-animals-jackpottriggers/",
+		"index": "kylotto-animals-jackpottriggers.html",
+		"remotePath": "/tbg.l2.design/kylotto-animals-jackpottriggers/",
 		"files": [
-			"./source/kylotto-big-jackpottriggers/160x600/",
-			"./source/kylotto-big-jackpottriggers/300x250/",
-			"./source/kylotto-big-jackpottriggers/300x600/",
-			"./source/kylotto-big-jackpottriggers/320x50/",
-			"./source/kylotto-big-jackpottriggers/728x90/"
+			"./source/kylotto-animals-jackpottriggers/160x600/",
+			"./source/kylotto-animals-jackpottriggers/300x250/",
+			"./source/kylotto-animals-jackpottriggers/300x600/",
+			"./source/kylotto-animals-jackpottriggers/320x50/",
+			"./source/kylotto-animals-jackpottriggers/728x90/"
 		]
 	},
 
