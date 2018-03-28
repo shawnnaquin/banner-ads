@@ -196,12 +196,13 @@ body {
     font-size: 90px;
     height: 123px;
     line-height: 146px;
+    transform: translateX(-13px);
     &:before {
-        position:absolute;
-        display: inline-block;
         content: '';
-        top: 32px;
-        left: 0;
+        position: relative;
+        display: inline-block;
+        left: 8px;
+        top: -33%;
         width: 20px;
         height: 20px;
         background-image: url('../images/dollar.svg');
