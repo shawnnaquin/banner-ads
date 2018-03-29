@@ -1,6 +1,6 @@
 var showClass = 'switched';
 var effectClass = 'js-switch';
-var frameStarts = [5500];
+var frameStarts = [2000];
 var timeouts;
 var KYObj, PBNum, MMNum;
 
