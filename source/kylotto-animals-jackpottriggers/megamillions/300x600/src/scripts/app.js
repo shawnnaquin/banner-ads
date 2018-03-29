@@ -8,10 +8,6 @@ function initAnimation() {
 	getAjax();
 	reset();
 }
-function lpad(value, padding) {
-    var zeroes = new Array(padding+1).join("0");
-    return (zeroes + value).slice(-padding);
-}
 
 function getAjax() {
 	microAjax({
@@ -19,9 +15,8 @@ function getAjax() {
 		method: "GET",
 		success: function(data) {
 			KYObj = JSON.parse(data);
-			// PBNum = KYObj.channel.item[0].description;
-			MMNum = lpad( KYObj.channel.item[1].description, 3);
-			document.querySelector('.js-number').innerHTML = MMNum;
+			MMNum = KYObj.channel.item[1].description;
+			document.querySelector('.js-number').innerHTML = MMNum;;
 		},
 		warning: function(error) {
 			console.log('warnining!', error);
