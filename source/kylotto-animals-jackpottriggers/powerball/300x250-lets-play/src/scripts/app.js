@@ -8,20 +8,15 @@ function initAnimation() {
 	getAjax();
 	reset();
 }
-function lpad(value, padding) {
-    // var zeroes = new Array(padding+1).join("0");
-    // return (zeroes + value).slice(-padding);
-    return value;
-}
+
 function getAjax() {
 	microAjax({
 		url: "https://accelerator.buntingroup.com/kylotto",
 		method: "GET",
 		success: function(data) {
 			KYObj = JSON.parse(data);
-			// PBNum = KYObj.channel.item[0].description;
-			MMNum = lpad( KYObj.channel.item[0].description, 3);
-			document.querySelector('.js-number').innerHTML = MMNum;
+			PBNum = KYObj.channel.item[0].description;
+			document.querySelector('.js-number').innerHTML = PBNum;
 		},
 		warning: function(error) {
 			console.log('warnining!', error);
