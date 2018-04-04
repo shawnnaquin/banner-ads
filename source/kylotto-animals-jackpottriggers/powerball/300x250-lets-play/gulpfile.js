@@ -52,7 +52,7 @@ gulp.task('scripts', function () {
 	// .pipe(maps.init())
 	// .pipe(maps.write())
 	.pipe(concat('scripts.js'))
-	// .pipe(uglify())
+	.pipe(uglify())
 	.pipe(gulp.dest(paths.js))
 	.pipe(browserSync.reload({ stream: true })); // Reload browser
 });

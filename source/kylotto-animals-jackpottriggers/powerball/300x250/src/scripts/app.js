@@ -4,6 +4,11 @@ var frameStarts = [2000];
 var timeouts;
 var KYObj, PBNum, MMNum;
 
+function initAnimation() {
+	getAjax();
+	reset();
+}
+
 function getAjax() {
 	microAjax({
 		url: "https://accelerator.buntingroup.com/kylotto",
