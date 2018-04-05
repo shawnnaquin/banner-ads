@@ -133,11 +133,11 @@ body {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-around;;
-    align-items: start;
-    align-content: space-between;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
 
-    width: 157px;
+    width: 118px;
     height: 100%;
 
     perspective: 1000px;
@@ -162,10 +162,7 @@ body {
 
     .gamblers {
         image-rendering: -webkit-optimize-contrast;
-        position:absolute;
-        right:0;
-        bottom:0;
-        width:45px;
+        width:65px;
         height:auto;
     }
 
@@ -237,6 +234,8 @@ body {
     color: $white;
     @include buttonStyle();
     &.small {
+        position: absolute;
+        bottom: 6px;
         padding: 6px 4px;
         font-size:10px;
         font-style: normal;
