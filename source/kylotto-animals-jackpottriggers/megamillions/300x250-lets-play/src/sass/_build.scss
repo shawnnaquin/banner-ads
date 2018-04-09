@@ -160,9 +160,21 @@ body {
 
     img {
         height:90%;
-        &.gamblers {
-            height: 90%;
-        }
+    }
+    .gamblers {
+        position: relative;
+        align-self: center;
+        top: 2px;
+        max-width: 72px;
+        height: auto;
+        font-size: 12px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        word-break: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+        line-height: 1.1;
+        transform: translateX(-5px);
     }
     .ky-lotto-logo {
         transform: translateY(5px);

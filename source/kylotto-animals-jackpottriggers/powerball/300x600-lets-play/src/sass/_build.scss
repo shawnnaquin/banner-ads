@@ -335,8 +335,9 @@ body {
     }
 
     .gamblers {
-        height: 78px;
-        width: auto;
+        line-height:1;
+        font-weight:bold;
+        font-size:14px;
         -webkit-backface-visibility: hidden;
         image-rendering: -webkit-optimize-contrast;
     }

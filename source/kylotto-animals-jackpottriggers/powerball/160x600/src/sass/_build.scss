@@ -336,7 +336,10 @@ body {
     }
 
     .gamblers {
-        height:65px;
-        width:auto;
+        font-size:14px;
+        font-weight:bold;
+        font-family: $font;
+        text-align:center;
     }
+
 }
