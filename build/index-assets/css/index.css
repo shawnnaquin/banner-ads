@@ -23,9 +23,9 @@
     margin-top:24px;
 }
 
-/*.group:nth-child(4n+4) {
+.group:nth-child(4n+4) {
     clear:both;
-}*/
+}
 
 .logo-container {
     position:relative;
