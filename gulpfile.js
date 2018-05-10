@@ -1,4 +1,3 @@
-var	projectName = 'KYLottoAnimalsJackpotTriggers';
 
 var gulp = require( 'gulp' ),
 	chug = require( 'gulp-chug' ),
@@ -14,7 +13,7 @@ var gulp = require( 'gulp' ),
 	fs = require('fs'),
 	package = JSON.parse(fs.readFileSync('./package.json')),
 	projects = JSON.parse(fs.readFileSync('./projects.json')),
-
+	projectName = projects.currentProject,
 	project = projects[projectName],
 	projectDir = project.directory,
 	files = project.files,
@@ -96,6 +95,8 @@ gulp.task('build', ['clean', 'moveIndex'], function() {
 			.pipe(gutil.noop());
 	});
 });
+
+gulp.task('default', ['serve'] );
 
 /* serve
 ----------------------------------------------------------------------------------------------------------------------*/

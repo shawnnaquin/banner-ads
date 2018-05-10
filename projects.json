@@ -1,4 +1,5 @@
 {
+
 	"ServproQ4Moments": {
 		"ServproQ4Moments-version": "1.0.11",
 		"directory": "./source/servpro-q4-moments/",
@@ -114,6 +115,18 @@
 			"./source/servpro-water/servpro-water/300x250/",
 			"./source/servpro-water/servpro-storm/300x250/",
 			"./source/servpro-water/servpro-storm/728x90/"
+		]
+	},
+
+	"currentProject": "doubleclick-example",
+
+	"doubleclick-example": {
+		"doubleclick-example-version": "1.0.0",
+		"directory": "./source/doubleclick-example",
+		"index": "doubleclick-example.html",
+		"remotePath": "/tbg.l2.design/doubleclick-example",
+		"files": [
+			"./source/doubleclick-example/160x600"
 		]
 	},
 
