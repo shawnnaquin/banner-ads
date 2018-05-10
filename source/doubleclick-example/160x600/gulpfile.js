@@ -26,12 +26,12 @@ var gulp = require('gulp'),
 // Sass task: Compile SCSS files to CSS
 gulp.task('sass', function () {
 	return gulp.src(paths.sass + '*.scss')
-		// .pipe(maps.init())
+		.pipe(maps.init())
 		.pipe(sass())
-		// .on('error', sass.logError )
+		.on('error', sass.logError )
 		.pipe(autoprefixer())
-		// .pipe(maps.write())
-		.pipe(cssmin())
+		.pipe(maps.write())
+		// .pipe(cssmin())
 		.pipe(gulp.dest(paths.css))
 		.pipe(browserSync.reload({ stream: true })); // Reload browser
 });
@@ -48,20 +48,13 @@ gulp.task('browser-sync', ['default'], function () {
 // Scripts task: Compile TypeScript files to js
 gulp.task('scripts', function () {
   return gulp.src([ paths.scripts + 'polyfill.js', paths.scripts + 'app.js', paths.scripts + 'script.js' ])
-	// .pipe(jslint())
-	// .pipe(maps.init())
-	// .pipe(maps.write())
+	.pipe(jslint())
+	.pipe(maps.init())
+	.pipe(maps.write())
 	.pipe(concat('scripts.js'))
-	.pipe(uglify())
+	// .pipe(uglify())
 	.pipe(gulp.dest(paths.js))
 	.pipe(browserSync.reload({ stream: true })); // Reload browser
-});
-
-gulp.task('EBLoader', function() {
-	return gulp.src(paths.scripts + 'EBLoader.js')
-		.pipe(uglify())
-		.pipe(gulp.dest(paths.js))
-		.pipe(browserSync.reload({stream:true}));
 });
 
 gulp.task('html', function () {
@@ -82,11 +75,10 @@ gulp.task('images', function () {
 gulp.task('watch', function () {
 	gulp.watch(paths.sass + '**/*.scss', ['sass']); // Watch sass files
 	gulp.watch([paths.scripts + 'app.js', paths.scripts + 'script.js'], ['scripts']); // Watch .ts files
-	gulp.watch(paths.scripts + 'EBLoader.js', ['EBLoader']); // Watch .ts files
 	gulp.watch(src + '**/*.html', ['html']); // Watch html files
 });
 
 // Default task: Run `gulp` to launch browser-sync
 //and watch for file changes.
 gulp.task('serve', ['browser-sync', 'watch']);
-gulp.task('default', ['sass', 'scripts', 'EBLoader', 'html', 'images' ]);
+gulp.task('default', ['sass', 'scripts', 'html', 'images' ]);

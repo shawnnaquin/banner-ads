@@ -1,25 +1,45 @@
-var adDiv;
+// JavaScript Document
+//HTML5 Ad Template JS from DoubleClick by Google
 
-function initEB() {
-    if (!EB.isInitialized()) {
-        EB.addEventListener(EBG.EventName.EB_INITIALIZED, startAd);
-    } else {
-        startAd();
+var buttons = {
+    link: 'http://google.com',
+    exitBtn: {
+      $: '',
+      id: 'HTML5_Background_Clickthrough'
+    },
+    otherBtn: {
+      $: '',
+      id: 'HTML5_OtherBtn_Clickthrough'
     }
-}
+};
 
-function startAd() {
-    adDiv = document.getElementById("ad");
-    addEventListeners();
+dcrmInit = function(){
+    buttons.exitBtn.$ = document.querySelector('.js-banner');
+    buttons.otherBtn.$ = document.querySelector('.js-button');
+    addListeners();
     initAnimation();
 }
 
-function addEventListeners() {
-    document.getElementById("ad").addEventListener("click", clickthrough);
+addListeners = function (){
+    buttons.exitBtn.$.addEventListener('click', onExitHandler, false);
+    buttons.otherBtn.$.addEventListener('click', altExitHandler, false);
 }
 
-function clickthrough() {
-    EB.clickthrough();
+onExitHandler = function(e){
+    Enabler.exit( buttons.exitBtn.id, buttons.link );
+    Enabler.counter( buttons.exitBtn.id );
 }
 
-window.addEventListener("load", initEB);
+altExitHandler = function(e) {
+    Enabler.exitOverride( buttons.otherBtn.id, buttons.link );
+    Enabler.counter( buttons.otherBtn.id );
+    e.stopPropagation();
+}
+
+window.onload = function() {
+  if (Enabler.isInitialized()) {
+    dcrmInit();
+  } else {
+    Enabler.addEventListener(studio.events.StudioEvent.INIT, dcrmInit);
+  }
+}
