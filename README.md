@@ -5,6 +5,9 @@ while also preserving the structure of previous groups of ads in the same repo.
 
 Each group of ads should have it's own landing page.
 
+## example banner ad pages:
+http://tbg.l2.design/kylotto-speedometer/kylotto-speedometer-300x600-build/index.html
+
 #### .secret.json
 
 - create the file `.secret.json` in the root directory for ftp access
